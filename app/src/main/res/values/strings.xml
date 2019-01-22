@@ -1,8 +1,20 @@
 <resources>
+
+    <!-- Strings for the login activity -->
     <string name="app_name">Unknown_Borrower</string>
     <string name="show_password">show_password</string>
     <string name="login">login</string>
     <string name="password">password</string>
     <string name="mobile_number">mobile_number</string>
     <string name="or_forgot_password">or, forgot password</string>
+
+    <!-- String for the profile activity -->
+    <string name="contactNum">+91 9773237954</string>
+    <string name="email">NJnisarg@gmail.com</string>
+    <string name="city">Bangalore</string>
+    <string name="state">Karnataka</string>
+    <string name="age">20</string>
+    <string name="org">Microsoft, India</string>
+    <string name="gender">Male</string>
+    <string name="name">Nisarg S. Joshi</string>
 </resources>
