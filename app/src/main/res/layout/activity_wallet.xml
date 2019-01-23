@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Wallet"
+    android:background="#e0e0e0">
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@color/colorPrimaryDark"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/profile"
+                android:layout_centerHorizontal="true"
+                android:elevation="2dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#A1887F"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85dp"
+                    app:cardCornerRadius="2dp"
+                    app:contentPaddingBottom="15dp"
+                    app:contentPaddingLeft="15dp"
+                    app:contentPaddingRight="15dp"
+                    app:contentPaddingTop="15dp"
+                    android:elevation="5dp"
+                    android:outlineAmbientShadowColor="#bdbdbd"
+                    android:outlineSpotShadowColor="#bdbdbd">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RatingBar
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="40dp"
+                            android:numStars="5"
+                            android:rating="4.5"
+                            android:scaleX=".5"
+                            android:scaleY=".5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="0dp"
+                            android:text="Yash M Agarwal"
+                            android:textSize="24sp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="270dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="2dp"
+            app:contentPaddingBottom="5sp"
+            app:contentPaddingLeft="10sp"
+            app:contentPaddingRight="10sp"
+            app:contentPaddingTop="5sp"
+            android:elevation="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/wallet"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="60dp"
+                android:background="#bdbdbd"
+                android:layout_marginLeft="60dp"/>
+
+            <TextView
+                android:layout_width="216dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="5dp"
+                android:text="Current Balance:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="216dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="33dp"
+                android:text="\u20B9 10,000"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="30dp"
+            app:contentPaddingLeft="10sp"
+            app:contentPaddingRight="10sp"
+            app:contentPaddingTop="5sp"
+            android:elevation="10dp"
+            android:gravity="center">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/addmoney"
+                android:layout_marginLeft="10dp"
+                android:background="#FFFFFF"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="50dp"
+                android:background="#bdbdbd"
+                android:layout_marginLeft="74dp"/>
+
+            <Button
+                android:id="@+id/add_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Money"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:elevation="0dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:background="#FFFFFF"
+                android:layout_marginLeft="75dp"/>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</RelativeLayout>
