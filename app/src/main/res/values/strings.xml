@@ -15,6 +15,6 @@
     <string name="state">Karnataka</string>
     <string name="age">20</string>
     <string name="org">Microsoft, India</string>
-    <string name="gender">Male</string>
+    <string name="gender">M</string>
     <string name="name">Nisarg S. Joshi</string>
 </resources>

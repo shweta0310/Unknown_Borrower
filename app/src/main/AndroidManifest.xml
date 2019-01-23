@@ -24,13 +24,19 @@
         <activity android:name=".profileActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"></action>
+                <category android:name="android.intent.category.LAUNCHER"></category>
+            </intent-filter>
+        </activity>
+        <activity android:name=".editProfileActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"></action>
                 <category android:name="android.intent.category.DEFAULT"></category>
             </intent-filter>
         </activity>
         <activity android:name=".Wallet">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"></action>
-                <category android:name="android.intent.category.LAUNCHER"></category>
+                <category android:name="android.intent.category.DEFAULT"></category>
             </intent-filter>
         </activity>
         <activity android:name=".AddMoney">
@@ -40,5 +46,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
