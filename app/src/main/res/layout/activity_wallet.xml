@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Wallet"
     android:background="#e0e0e0">
-    
+
     <View
         android:layout_width="match_parent"
         android:layout_height="210dp"
@@ -73,7 +73,6 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="0dp"
-                            android:text="Yash M Agarwal"
                             android:textSize="24sp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold" />
@@ -131,7 +130,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="33dp"
-                android:text="\u20B9 10,000"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:textSize="20sp" />

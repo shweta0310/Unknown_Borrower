@@ -8,18 +8,18 @@
     tools:context=".AddMoney">
 
     <TextView
+        android:id="@+id/availablebalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#EEEEEE"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
-        android:text="Available Balance:  \u20B910,000"
         android:gravity="center"
         android:paddingTop="12dp"
         android:paddingBottom="12dp" />
 
     <EditText
-        android:id="@+id/amount"
+        android:id="@+id/addAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
