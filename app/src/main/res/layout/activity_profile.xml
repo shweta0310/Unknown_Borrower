@@ -75,6 +75,7 @@
                                 />
 
                             <TextView
+                                android:id="@+id/username"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -135,6 +136,7 @@
                     android:layout_marginLeft="80dp"/>
 
                 <TextView
+                    android:id="@+id/contactNum"
                     android:layout_width="216dp"
                     android:layout_height="wrap_content"
                     android:text="@string/contactNum"
@@ -179,6 +181,7 @@
                     android:layout_marginLeft="80dp"/>
 
                 <TextView
+                    android:id="@+id/email"
                     android:layout_width="216dp"
                     android:layout_height="wrap_content"
                     android:text="@string/email"
@@ -224,6 +227,7 @@
                     android:layout_marginLeft="80dp"/>
 
                 <TextView
+                    android:id="@+id/city"
                     android:layout_width="216dp"
                     android:layout_height="wrap_content"
                     android:text="@string/city"
@@ -259,6 +263,7 @@
                     android:layout_marginLeft="60dp"/>
 
                 <TextView
+                    android:id="@+id/state"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:text="State:"
@@ -314,6 +319,7 @@
                     android:layout_marginLeft="80dp"/>
 
                 <TextView
+                    android:id="@+id/organisation"
                     android:layout_width="216dp"
                     android:layout_height="wrap_content"
                     android:text="@string/org"
@@ -360,6 +366,7 @@
                     android:layout_marginLeft="80dp"/>
 
                 <TextView
+                    android:id="@+id/age"
                     android:layout_width="216dp"
                     android:layout_height="wrap_content"
                     android:text="@string/age"
@@ -404,6 +411,7 @@
                     android:layout_marginLeft="80dp"/>
 
                 <TextView
+                    android:id="@+id/gender"
                     android:layout_width="216dp"
                     android:layout_height="wrap_content"
                     android:text="@string/gender"

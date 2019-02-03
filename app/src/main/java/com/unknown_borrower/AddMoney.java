@@ -71,7 +71,7 @@ public class AddMoney extends AppCompatActivity {
                     {
                         try
                         {
-                            Double amount = (Double) response.getDouble("balance");
+                            Double amount = response.getDouble("balance");
 
                             availableBalance.append("Available Balance:  \u20B9" + String.valueOf(amount));
                         }
@@ -146,7 +146,7 @@ public class AddMoney extends AppCompatActivity {
                 //This is for Headers If You Needed
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String, String> headers = new HashMap<String, String>();
+                    Map<String, String> headers = new HashMap<>();
                     headers.put("Content-Type", "application/json; charset=UTF-8");
                     headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5MTQ2MzQ1LCJleHAiOjE1NDkyMzI3NDV9.MXE0eZ32_l8O9GvOCgBLwks2hkudl-48OgeyNpKwcLA");
                     return headers;
@@ -182,7 +182,7 @@ public class AddMoney extends AppCompatActivity {
             valueTV.setText("Money Added succesfully");
             valueTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
             valueTV.setLayoutParams(new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.FILL_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT));
 
             ((LinearLayout) linearLayout).addView(valueTV);
