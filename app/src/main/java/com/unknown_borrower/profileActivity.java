@@ -3,7 +3,9 @@ package com.unknown_borrower;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -39,15 +41,26 @@ public class profileActivity extends AppCompatActivity {
         age = findViewById(R.id.age);
         gender = findViewById(R.id.gender);
 
-        mQueue = Volley.newRequestQueue(this);
+        Button button = (Button) findViewById(R.id.editProfileBtn);
 
-        viewUser();
+        button.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.wtf("onCLick", "WorkingIntent1");
+                Intent i1 = new Intent(profileActivity.this, editProfileActivity.class);
+                startActivity(i1);
+            }
+        });
+
+        mQueue = Volley.newRequestQueue(this);
 
     }
 
-    public void goToEditProfileActivity(View view){
-        Intent intent = new Intent(this, editProfileActivity.class);
-        startActivity(intent);
+    @Override
+    public void onResume(){
+        super.onResume();
+        viewUser();
+
     }
 
     String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/profile/getProfile";
@@ -60,6 +73,8 @@ public class profileActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response)
                     {
+                        String str = response.toString();
+                        Log.d("INFO",str);
                         try
                         {
                             String name = response.getString("name");
@@ -68,7 +83,7 @@ public class profileActivity extends AppCompatActivity {
                             String num = response.getString("contactNum");
                             contactNum.append(num);
 
-                            String Email = response.getString("email");
+                            String Email = response.getString("emailId");
                             email.append(Email);
 
                             String City = response.getString("city");
@@ -84,7 +99,7 @@ public class profileActivity extends AppCompatActivity {
                             String ageInt = Integer.toString(Age);
                             age.append(ageInt);
 
-                            Integer Gender = response.getInt("age");
+                            Integer Gender = response.getInt("gender");
                             if(Gender==1)
                             {
                                 gender.append("F");
@@ -113,7 +128,7 @@ public class profileActivity extends AppCompatActivity {
             {
                 HashMap headers = new HashMap();
                 headers.put("Content-Type", "application/json");
-                headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5MTQ2MzQ1LCJleHAiOjE1NDkyMzI3NDV9.MXE0eZ32_l8O9GvOCgBLwks2hkudl-48OgeyNpKwcLA");
+                headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5Mjg0NDk4LCJleHAiOjE1NDkzNzA4OTh9.igOx4RvRlfrZdVQm7I4C_2E-aAN4vuvpnH-zK3QU16o");
                 return headers;
             }
         };

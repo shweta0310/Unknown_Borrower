@@ -42,8 +42,6 @@ public class AddMoney extends AppCompatActivity {
 
         mQueue = Volley.newRequestQueue(this);
 
-        viewAmount();
-
         amountText = (EditText) findViewById(R.id.addAmount);
         submitButton = (Button) findViewById(R.id.submit);
 
@@ -57,6 +55,13 @@ public class AddMoney extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        viewAmount();
     }
 
     private void viewAmount()
@@ -93,7 +98,7 @@ public class AddMoney extends AppCompatActivity {
             public Map getHeaders() throws AuthFailureError {
                 HashMap headers = new HashMap();
                 headers.put("Content-Type", "application/json");
-                headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5MTQ2MzQ1LCJleHAiOjE1NDkyMzI3NDV9.MXE0eZ32_l8O9GvOCgBLwks2hkudl-48OgeyNpKwcLA");
+                headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5Mjg0NDk4LCJleHAiOjE1NDkzNzA4OTh9.igOx4RvRlfrZdVQm7I4C_2E-aAN4vuvpnH-zK3QU16o");
                 return headers;
             }
         };
@@ -148,7 +153,7 @@ public class AddMoney extends AppCompatActivity {
                 public Map<String, String> getHeaders() throws AuthFailureError {
                     Map<String, String> headers = new HashMap<>();
                     headers.put("Content-Type", "application/json; charset=UTF-8");
-                    headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5MTQ2MzQ1LCJleHAiOjE1NDkyMzI3NDV9.MXE0eZ32_l8O9GvOCgBLwks2hkudl-48OgeyNpKwcLA");
+                    headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5Mjg0NDk4LCJleHAiOjE1NDkzNzA4OTh9.igOx4RvRlfrZdVQm7I4C_2E-aAN4vuvpnH-zK3QU16o");
                     return headers;
                 }
 
