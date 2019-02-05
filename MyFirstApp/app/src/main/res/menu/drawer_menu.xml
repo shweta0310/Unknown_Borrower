@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item_a"
+        android:checkable="true"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile"
+        />
+
+    <item
+        android:id="@+id/item_b"
+        android:checkable="true"
+        android:icon="@drawable/ic_wallet"
+        android:title="Wallet"
+        />
+
+    <item
+        android:id="@+id/item_c"
+        android:checkable="true"
+        android:icon="@drawable/ic_history"
+        android:title="Your Transactions"
+        />
+    <item
+        android:id="@+id/item_d"
+        android:checkable="true"
+        android:icon="@android:drawable/ic_lock_lock"
+        android:title="Log Out"
+        />
+</menu>
