@@ -39,8 +39,6 @@ public class Wallet extends AppCompatActivity {
 
         mQueue = Volley.newRequestQueue(this);
 
-        viewUser();
-
         Button button = (Button) findViewById(R.id.add_money);
 
         button.setOnClickListener(new Button.OnClickListener() {
@@ -51,6 +49,13 @@ public class Wallet extends AppCompatActivity {
                 startActivity(i1);
             }
         });
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        viewUser();
     }
 
     String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/profile/getProfile";
@@ -66,10 +71,10 @@ public class Wallet extends AppCompatActivity {
                         try
                         {
                             String name = response.getString("name");
-                            username.append(name);
+                            username.setText(name);
 
                             Double amount = (Double) response.getDouble("balance");
-                            balance.append("\u20B9 " + String.valueOf(amount));
+                            balance.setText("\u20B9 " + String.valueOf(amount));
                         }
                         catch (JSONException e)
                         {
@@ -90,7 +95,7 @@ public class Wallet extends AppCompatActivity {
             {
                 HashMap headers = new HashMap();
                 headers.put("Content-Type", "application/json");
-                headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5MTQ2MzQ1LCJleHAiOjE1NDkyMzI3NDV9.MXE0eZ32_l8O9GvOCgBLwks2hkudl-48OgeyNpKwcLA");
+                headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5Mjg0NDk4LCJleHAiOjE1NDkzNzA4OTh9.igOx4RvRlfrZdVQm7I4C_2E-aAN4vuvpnH-zK3QU16o");
                 return headers;
             }
         };

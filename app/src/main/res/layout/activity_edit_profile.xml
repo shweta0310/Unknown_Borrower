@@ -85,8 +85,7 @@
                                     android:numStars="5"
                                     android:rating="4.5"
                                     android:scaleX=".5"
-                                    android:scaleY=".5"
-                                    />
+                                    android:scaleY=".5" />
 
                                 <EditText
                                     android:id="@+id/edit_name"
@@ -94,7 +93,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginTop="0dp"
-                                    android:text="@string/name"
+                                    android:text=""
                                     android:textSize="24sp"
                                     android:textStyle="bold" />
 
@@ -151,9 +150,9 @@
                     android:layout_marginLeft="80dp"/>
 
                 <TextView
+                    android:id="@+id/contactNum_field"
                     android:layout_width="216dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/contactNum"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:layout_marginTop="13dp"
@@ -195,9 +194,9 @@
                     android:layout_marginLeft="80dp"/>
 
                 <TextView
+                    android:id="@+id/email_field"
                     android:layout_width="216dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/email"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:layout_marginTop="13dp"
@@ -243,7 +242,6 @@
                     android:id="@+id/city_field"
                     android:layout_width="216dp"
                     android:layout_height="40dp"
-                    android:text="@string/city"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:layout_marginTop="10dp"
@@ -289,7 +287,6 @@
                     android:id="@+id/state_field"
                     android:layout_width="216dp"
                     android:layout_height="40dp"
-                    android:text="@string/state"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:layout_marginTop="10dp"
@@ -335,7 +332,6 @@
                     android:id="@+id/org_field"
                     android:layout_width="216dp"
                     android:layout_height="40dp"
-                    android:text="@string/org"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:layout_marginTop="13dp"
@@ -383,7 +379,6 @@
                     android:layout_width="216dp"
                     android:layout_height="40dp"
                     android:inputType="number"
-                    android:text="@string/age"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:layout_marginTop="10dp"
@@ -428,7 +423,6 @@
                     android:id="@+id/gender_field"
                     android:layout_width="216dp"
                     android:layout_height="40dp"
-                    android:text="@string/gender"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:layout_marginTop="10dp"
