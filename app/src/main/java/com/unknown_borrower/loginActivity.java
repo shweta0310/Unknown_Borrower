@@ -1,23 +1,27 @@
 package com.unknown_borrower;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -83,52 +87,61 @@ public class loginActivity extends AppCompatActivity {
             passwordEditText.setError("Not valid or 8 characters minimum");
         }
         else {
-           // WHEN LOGIN BUTTON IS CLICKED
-            Log.d("login button clicked", "Successful login"); // Sample
+           // connecting to backend using volley
 
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
             // Request a string response from the provided URL.
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, "localhost:3000/login",
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            // check the response from server.
-                            if(response.equals("success")){
-                                //login authenticated. Start the next activity of your app
-                                Toast.makeText(loginActivity.this, "Logged In", Toast.LENGTH_SHORT).show();
-                                //TODO: start the new activity of your app
-                            }else{
-                                //login failed. prompt to re-enter the credentials
-                                passwordEditText.setError("Wrong mobile or password!");
-                                passwordEditText.requestFocus();
-                            }
+
+            String url="http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/users/login";
+            HashMap<String,String> params= new HashMap<>();
+            params.put("contactNum", mobileNumberEditText.getText().toString());
+            params.put("password", passwordEditText.getText().toString());
+
+            JsonObjectRequest loginRequest = new JsonObjectRequest(Request.Method.POST, url,new JSONObject(params),new Response.Listener<JSONObject>(){
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        if(response.getString("token") != null){
+                                    //login authenticated. Start the next activity of your app
+                                    Toast.makeText(getApplicationContext(), "Logged In", Toast.LENGTH_SHORT).show();
+                            Log.d("loginActivity","Logged In");
+
+                                }
+                        if(response.toString() == "Passwords do not match")
+                        {  //login failed. prompt to re-enter the credentials
+                            Toast.makeText(getApplicationContext(), "wrong", Toast.LENGTH_SHORT).show();
+                            Log.d("loginActivity", "Wrong password");
+                            passwordEditText.setError("Wrong mobile or password!");
+                            passwordEditText.requestFocus();
                         }
-                    }, new Response.ErrorListener() {
+
+                    } catch (JSONException e) {
+
+                        e.printStackTrace();
+                    }
+
+                }
+            }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    //error in sending requst
                     Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                 }
-            }){
-                //adding parameters to the request
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> params = new HashMap<>();
-                    params.put("mobile", mobileNumberEditText.getText().toString());
-                    params.put("password", passwordEditText.getText().toString());
-                    return params;
-                }
-            };
-            // Add the request to the RequestQueue.
-            queue.add(stringRequest);
+
+            });
+
+
+
+            queue.add(loginRequest);
+            // volley part ends here
         }
 
         }
 
 
-    // Notifying the user that email is sent to change Password
-    public void forgotPassword(View view){
-
-    }
+//    // forwarding to SignUp page
+//    public void signUP(View view){
+//        Intent intent = new Intent(getApplicationContext(),);
+//        startActivity(intent);
+//    }
 }

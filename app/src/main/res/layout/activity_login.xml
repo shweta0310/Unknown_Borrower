@@ -46,19 +46,19 @@
         android:layout_marginBottom="58dp"
         android:onClick="showPassword"
         android:text="@string/show_password"
-        app:layout_constraintBottom_toTopOf="@+id/forgotPasswordTextView"
+        app:layout_constraintBottom_toTopOf="@+id/signUpTextview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
     <TextView
-        android:id="@+id/forgotPasswordTextView"
+        android:id="@+id/signUpTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:onClick="forgotPassword"
-        android:text="@string/or_forgot_password"
+        android:onClick="signUP"
+        android:text="or, SignUP"
         android:textColor="#1A237E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
