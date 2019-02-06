@@ -28,6 +28,8 @@ import java.util.Map;
 
 public class AddMoney extends AppCompatActivity {
 
+    String token = null;
+
     private EditText amountText;
     private Button submitButton;
 
@@ -38,6 +40,9 @@ public class AddMoney extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_money);
+
+        this.token = getIntent().getStringExtra("token");
+        Log.e("Token",token);
 
         availableBalance = findViewById(R.id.availablebalance);
 
@@ -99,7 +104,7 @@ public class AddMoney extends AppCompatActivity {
             public Map getHeaders() throws AuthFailureError {
                 HashMap headers = new HashMap();
                 headers.put("Content-Type", "application/json");
-                headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5Mjg0NDk4LCJleHAiOjE1NDkzNzA4OTh9.igOx4RvRlfrZdVQm7I4C_2E-aAN4vuvpnH-zK3QU16o");
+                headers.put("Authorization", "Token "+ token);
                 return headers;
             }
         };
@@ -154,7 +159,7 @@ public class AddMoney extends AppCompatActivity {
                 public Map<String, String> getHeaders() throws AuthFailureError {
                     Map<String, String> headers = new HashMap<>();
                     headers.put("Content-Type", "application/json; charset=UTF-8");
-                    headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5Mjg0NDk4LCJleHAiOjE1NDkzNzA4OTh9.igOx4RvRlfrZdVQm7I4C_2E-aAN4vuvpnH-zK3QU16o");
+                    headers.put("Authorization", "Token " + token);
                     return headers;
                 }
 

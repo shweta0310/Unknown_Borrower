@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -31,10 +32,15 @@ public class editProfileActivity extends AppCompatActivity {
     private TextView contactNum,email;
     private RequestQueue mQueue;
 
+    String token=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        this.token = getIntent().getStringExtra("token");
+        Log.e("Token",token);
 
         age = findViewById(R.id.age_field);
         name = findViewById(R.id.edit_name);
@@ -120,7 +126,7 @@ public class editProfileActivity extends AppCompatActivity {
             {
                 HashMap headers = new HashMap();
                 headers.put("Content-Type", "application/json");
-                headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5Mjg0NDk4LCJleHAiOjE1NDkzNzA4OTh9.igOx4RvRlfrZdVQm7I4C_2E-aAN4vuvpnH-zK3QU16o");
+                headers.put("Authorization", "Token " + token);
                 return headers;
             }
         };
@@ -195,11 +201,16 @@ public class editProfileActivity extends AppCompatActivity {
                 public void onResponse(String response) {
                     Log.e("Your Array Response", response);
 
+                    Intent intent = new Intent(editProfileActivity.this, profile.class);
+                    intent.putExtra("token",token);
+                    startActivity(intent);
+
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     Log.e("error is ", "" + error);
+                    Toast.makeText(getApplicationContext(), "Could not update the profile. Please try again", Toast.LENGTH_SHORT).show();
                 }
             }) {
 
@@ -208,7 +219,7 @@ public class editProfileActivity extends AppCompatActivity {
                 public Map<String, String> getHeaders() throws AuthFailureError {
                     Map<String, String> headers = new HashMap<>();
                     headers.put("Content-Type", "application/json; charset=UTF-8");
-                    headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5Mjg0NDk4LCJleHAiOjE1NDkzNzA4OTh9.igOx4RvRlfrZdVQm7I4C_2E-aAN4vuvpnH-zK3QU16o");
+                    headers.put("Authorization", "Token " + token);
                     return headers;
                 }
 
@@ -233,8 +244,6 @@ public class editProfileActivity extends AppCompatActivity {
             };
 
             mQueue.add(request);
-            Intent intent = new Intent(this, profile.class);
-            startActivity(intent);
         }
     }
 }

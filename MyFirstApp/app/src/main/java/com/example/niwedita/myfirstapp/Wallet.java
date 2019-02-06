@@ -28,10 +28,15 @@ public class Wallet extends AppCompatActivity {
     private TextView balance, username;
     private RequestQueue mQueue;
 
+    String token = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallet);
+
+        this.token = getIntent().getStringExtra("token");
+        Log.e("Token",token);
 
         balance = findViewById(R.id.balance);
         username = findViewById(R.id.username);
@@ -45,6 +50,7 @@ public class Wallet extends AppCompatActivity {
             public void onClick(View v) {
                 Log.wtf("onCLick", "WorkingIntent1");
                 Intent i1 = new Intent(Wallet.this, AddMoney.class);
+                i1.putExtra("token",token);
                 startActivity(i1);
             }
         });
@@ -94,7 +100,7 @@ public class Wallet extends AppCompatActivity {
             {
                 HashMap headers = new HashMap();
                 headers.put("Content-Type", "application/json");
-                headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5Mjg0NDk4LCJleHAiOjE1NDkzNzA4OTh9.igOx4RvRlfrZdVQm7I4C_2E-aAN4vuvpnH-zK3QU16o");
+                headers.put("Authorization", "Token " + token);
                 return headers;
             }
         };

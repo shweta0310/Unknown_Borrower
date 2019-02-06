@@ -17,6 +17,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -88,17 +93,21 @@ public class loginActivity extends AppCompatActivity {
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
             // Request a string response from the provided URL.
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, "localhost:3000/login",
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/users/login",
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            // check the response from server.
-                            if(response.equals("success")){
-                                //login authenticated. Start the next activity of your app
-                                Toast.makeText(loginActivity.this, "Logged In", Toast.LENGTH_SHORT).show();
-                                //TODO: start the new activity of your app
-                            }else{
-                                //login failed. prompt to re-enter the credentials
+
+                            try{
+                                JsonParser parser = new JsonParser();
+                                JsonElement jsonObject = parser.parse(response);
+                                String token = jsonObject.getAsJsonObject().get("token").getAsString();
+                                Log.e("token",token);
+
+                                Intent intent=new Intent(loginActivity.this,MainActivity.class);
+                                intent.putExtra("token",token);
+                                startActivity(intent);
+                            }catch (Exception e){
                                 passwordEditText.setError("Wrong mobile or password!");
                                 passwordEditText.requestFocus();
                             }
@@ -107,14 +116,16 @@ public class loginActivity extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     //error in sending requst
-                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Wrong mobile or password!", Toast.LENGTH_SHORT).show();
+                    passwordEditText.setError("Wrong mobile or password!");
+                    passwordEditText.requestFocus();
                 }
             }){
                 //adding parameters to the request
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
-                    params.put("mobile", mobileNumberEditText.getText().toString());
+                    params.put("contactNum", mobileNumberEditText.getText().toString());
                     params.put("password", passwordEditText.getText().toString());
                     return params;
                 }

@@ -27,10 +27,15 @@ public class profile extends AppCompatActivity {
     private TextView username, contactNum, email, city, state, organization, age, gender;
     private RequestQueue mQueue;
 
+    String token=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        this.token = getIntent().getStringExtra("token");
+        Log.e("Token",token);
 
         username = findViewById(R.id.username);
         contactNum = findViewById(R.id.contactNum);
@@ -48,6 +53,7 @@ public class profile extends AppCompatActivity {
             public void onClick(View v) {
                 Log.wtf("onCLick", "WorkingIntent1");
                 Intent i1 = new Intent(profile.this, editProfileActivity.class);
+                i1.putExtra("token",token);
                 startActivity(i1);
             }
         });
@@ -78,35 +84,35 @@ public class profile extends AppCompatActivity {
                         try
                         {
                             String name = response.getString("name");
-                            username.append(name);
+                            username.setText(name);
 
                             String num = response.getString("contactNum");
-                            contactNum.append(num);
+                            contactNum.setText(num);
 
                             String Email = response.getString("emailId");
-                            email.append(Email);
+                            email.setText(Email);
 
                             String City = response.getString("city");
-                            city.append(City);
+                            city.setText(City);
 
                             String State = response.getString("state");
-                            state.append(State);
+                            state.setText(State);
 
                             String Org = response.getString("org");
-                            organization.append(Org);
+                            organization.setText(Org);
 
                             Integer Age = response.getInt("age");
                             String ageInt = Integer.toString(Age);
-                            age.append(ageInt);
+                            age.setText(ageInt);
 
                             Integer Gender = response.getInt("gender");
                             if(Gender==1)
                             {
-                                gender.append("F");
+                                gender.setText("F");
                             }
                             if(Gender==0)
                             {
-                                gender.append("M");
+                                gender.setText("M");
                             }
                         }
                         catch (JSONException e)
@@ -128,7 +134,7 @@ public class profile extends AppCompatActivity {
             {
                 HashMap headers = new HashMap();
                 headers.put("Content-Type", "application/json");
-                headers.put("Authorization", "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ5Mjg0NDk4LCJleHAiOjE1NDkzNzA4OTh9.igOx4RvRlfrZdVQm7I4C_2E-aAN4vuvpnH-zK3QU16o");
+                headers.put("Authorization", "Token " + token);
                 return headers;
             }
         };
