@@ -1,4 +1,4 @@
-package com.example.android.signup;
+package com.example.niwedita.myfirstapp;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +18,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -35,6 +38,9 @@ public class SignUp2 extends AppCompatActivity {
     EditText country;
     EditText signup;
     String Token;
+    int userId;
+    String emailId;
+    String contactNum;
     int gender1;
 
     @Override
@@ -62,8 +68,15 @@ public class SignUp2 extends AppCompatActivity {
                     sign_up_user();
             }
         });
-        Intent intent = getIntent();
-        Token=intent.getStringExtra("token");
+        try {
+            JSONObject responseObject = new JSONObject(getIntent().getStringExtra("responseObject"));
+            Token = responseObject.getString("token");
+            userId = Integer.parseInt(responseObject.getString("userId"));
+            emailId = responseObject.getString("emailId");
+            contactNum = responseObject.getString("contactNum");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         System.out.println(Token);
     }
 
@@ -140,10 +153,32 @@ public class SignUp2 extends AppCompatActivity {
 
                 String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/profile/createProfile";
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+
+                JSONObject requestObject = new JSONObject();
+                requestObject.put("emailId",emailId);
+                requestObject.put("contactNum",contactNum);
+                requestObject.put("userId",userId);
+                requestObject.put("name", name.getText().toString());
+                requestObject.put("occupation", occupation.getText().toString());
+                requestObject.put("org", organization.getText().toString());
+                requestObject.put("city", city.getText().toString());
+                requestObject.put("state", state.getText().toString());
+                requestObject.put("country", country.getText().toString());
+                requestObject.put("gender", gender1);
+                requestObject.put("age", Integer.parseInt(age.getText().toString()));
+                requestObject.put("balance",0);
+                requestObject.put("ratings", 0);
+
+                final String requestString = requestObject.toString();
+
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Log.e("VOLLEY_SCROLL", response);
+
+                        Intent intent = new Intent(SignUp2.this, MainActivity.class);
+                        intent.putExtra("token", Token);
+                        startActivity(intent);
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -151,43 +186,28 @@ public class SignUp2 extends AppCompatActivity {
                         Log.e("ERROR", error.toString());
                     }
                 }) {
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<String, String>();
-                        params.put("name", name.toString());
-                        //params.put("age", Integer.parseInt(age.getText().toString()));
-                        //params.put("gender", gender1);
-                        params.put("occupation", occupation.toString());
-                        params.put("org", organization.toString());
-                        params.put("city", city.toString());
-                        params.put("state", state.toString());
-                        params.put("country", country.toString());
-                        //params.put("balance", Integer.parseInt(balance.toString()));
-                        //params.put("ratings", Integer.parseInt(ratings.toString()));
-                        return params;
-                    }
-                    protected Map<String ,Integer> getParams1() throws AuthFailureError {
-                        Map<String,Integer> params1= new HashMap<>();
-                        params1.put("gender", gender1);
-                        params1.put("age", Integer.parseInt(age.getText().toString()));
-                        params1.put("balance",0);
-                        params1.put("ratings", 0);
-                        return params1;
-                    }
+
+
                     @Override
                     public Map<String, String> getHeaders() throws AuthFailureError {
                         HashMap<String, String> params = new HashMap<String, String>();
                         params.put("Content-Type", "application/json");
-                        String creds = String.format("%s:%s","userlId","token");
-                        String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
-                        params.put("Authorization", auth);
+                        params.put("Authorization","Token "+ Token);
                         return params;
 
                     }
+
+                    @Override
+                    public byte[] getBody() {
+                        try{
+                            return requestString.getBytes();
+                        }catch (Exception e){
+                            return null;
+                        }
+                    }
                 };
                 queue.add(stringRequest);
-                Intent intent = new Intent(SignUp2.this, Dashboard.class);
-                intent.putExtra("token", Token);
-                startActivity(intent);
+
             } catch (Exception e) {
                 Log.e("ERROR", e.toString());
             }

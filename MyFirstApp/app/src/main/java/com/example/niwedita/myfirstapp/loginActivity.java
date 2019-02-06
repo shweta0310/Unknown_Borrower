@@ -141,4 +141,9 @@ public class loginActivity extends AppCompatActivity {
     public void forgotPassword(View view){
 
     }
+
+    public void register(View view){
+        Intent intent=new Intent(loginActivity.this,SignUp.class);
+        startActivity(intent);
+    }
 }

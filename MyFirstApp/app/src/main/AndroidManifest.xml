@@ -34,6 +34,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".SignUp"></activity>
+        <activity android:name=".SignUp2"></activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,14 +49,9 @@
         <activity android:name=".outgoing" />
         <activity android:name=".incoming" />
         <activity android:name=".ratings" />
-
         <activity android:name=".profile"/>
-
         <activity android:name=".editProfileActivity"/>
-
         <activity android:name=".Wallet"/>
-
-
         <activity android:name=".AddMoney"/>
 
 

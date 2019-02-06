@@ -1,4 +1,4 @@
-package com.example.android.signup;
+package com.example.niwedita.myfirstapp;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -104,50 +105,64 @@ public class SignUp extends AppCompatActivity {
 
         try {
 
+
+
             String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/users/register";
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+
+            JSONObject requestObject = new JSONObject();
+            requestObject.put("emailId",email.getText().toString());
+            requestObject.put("contactNum",phone.getText().toString());
+            requestObject.put("password",password.getText().toString());
+
+            final String requestString = requestObject.toString();
+
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Log.e("VOLLEY", response);
-                    //System.out.println(response);
-                    //token1=response;
                     try{
-                        //System.out.println(response);
                         JSONObject jsonObject = new JSONObject(response);
                         id = jsonObject.getString("userId");
-                        System.out.println(id);
+                        Log.e("userId",id);
                         token1 = jsonObject.getString("token");
-                        System.out.println(token1);
+                        Log.e("token1",token1);
+
+                        Intent intent = new Intent(SignUp.this, SignUp2.class);
+                        intent.putExtra("responseObject",jsonObject.toString());
+                        startActivity(intent);
+
                     } catch(JSONException e) {
                         Log.e("ERROR","Unexpected JSON Exception",e);
+
+                        Toast.makeText(getApplicationContext(), "Error with the signup. Please try again", Toast.LENGTH_SHORT).show();
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     Log.e("ERROR", error.toString());
+                    Toast.makeText(getApplicationContext(), "Error with the signup. Please try again", Toast.LENGTH_SHORT).show();
                 }
             }) {
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("emailId", email.toString());
-                    params.put("contactNum", phone.toString());
-                    params.put("password", password.toString());
-                    //params.put("userId",id);
-                    return params;
-                }
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {
                     Map<String,String> params = new HashMap<String, String>();
                     params.put("Content-Type","application/json; charset=utf-8");
                     return params;
                 }
+
+                @Override
+                public byte[] getBody() {
+                    try{
+                        return requestString.getBytes();
+                    }catch (Exception e){
+                        return null;
+                    }
+                }
             };
+
             queue.add(stringRequest);
-            Intent intent = new Intent(SignUp.this, SignUp2.class);
-            intent.putExtra("token",token1);
-            startActivity(intent);
+
         } catch (Exception e) {
             Log.e("ERROR", e.toString());
         }

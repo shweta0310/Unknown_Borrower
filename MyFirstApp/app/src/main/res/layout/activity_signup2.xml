@@ -35,7 +35,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
-            android:hint="@string/edit_name"
+            android:hint="edit_name"
             android:inputType="textPersonName" />
 
         <TextView
@@ -55,7 +55,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
-            android:hint="@string/edit_age"
+            android:hint="edit_age"
             android:inputType="number" />
 
         <TextView
@@ -75,7 +75,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
-            android:hint="@string/edit_gender"
+            android:hint="edit_gender"
             android:inputType="textPersonName" />
 
         <TextView
@@ -95,7 +95,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="@string/edit_occupation"
+            android:hint="edit_occupation"
             android:inputType="textPersonName" />
 
         <TextView
@@ -116,7 +116,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
-            android:hint="@string/edit_organization"
+            android:hint="edit_organization"
             android:inputType="textPersonName" />
 
         <TextView
@@ -137,7 +137,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
-            android:hint="@string/edit_city"
+            android:hint="edit_city"
             android:inputType="textPersonName" />
 
         <TextView
@@ -158,7 +158,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
-            android:hint="@string/edit_state"
+            android:hint="edit_state"
             android:inputType="textPersonName" />
 
         <TextView
@@ -179,7 +179,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
-            android:hint="@string/edit_country"
+            android:hint="edit_country"
             android:inputType="textPersonName" />
 
         <Button
