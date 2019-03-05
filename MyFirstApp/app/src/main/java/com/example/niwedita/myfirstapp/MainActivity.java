@@ -108,10 +108,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.item_d:
                 break;
+            case R.id.item_e:
+                openAccountSetting();
+                break;
 
         }
 
         return true;
+    }
+
+    public void openAccountSetting() {
+        Intent intent = new Intent(this, AccountSetting.class);
+        intent.putExtra("token",token);
+        startActivity(intent);
     }
 
     public void opentransaction(){
