@@ -139,7 +139,8 @@ public class loginActivity extends AppCompatActivity {
 
     // Notifying the user that email is sent to change Password
     public void forgotPassword(View view){
-
+        Intent intent = new Intent(loginActivity.this, ForgotPassword.class);
+        startActivity(intent);
     }
 
     public void register(View view){
