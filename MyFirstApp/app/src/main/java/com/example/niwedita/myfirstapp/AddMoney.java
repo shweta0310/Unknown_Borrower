@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -146,6 +147,8 @@ public class AddMoney extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
                     Log.e("Your Array Response", response);
+                    Toast.makeText(getApplicationContext(), "Money added Successfully", Toast.LENGTH_LONG).show();
+                    AddMoney.super.onBackPressed();
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -185,18 +188,18 @@ public class AddMoney extends AppCompatActivity {
 
             mQueue.add(request);
 
-            View linearLayout =  findViewById(R.id.info);
-            //LinearLayout layout = (LinearLayout) findViewById(R.id.info);
-
-
-            TextView valueTV = new TextView(this);
-            valueTV.setText("Money Added succesfully");
-            valueTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
-            valueTV.setLayoutParams(new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT));
-
-            ((LinearLayout) linearLayout).addView(valueTV);
+//            View linearLayout =  findViewById(R.id.info);
+//            //LinearLayout layout = (LinearLayout) findViewById(R.id.info);
+//
+//
+//            TextView valueTV = new TextView(this);
+//            valueTV.setText("Money Added succesfully");
+//            valueTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+//            valueTV.setLayoutParams(new LinearLayout.LayoutParams(
+//                    LinearLayout.LayoutParams.WRAP_CONTENT,
+//                    LinearLayout.LayoutParams.WRAP_CONTENT));
+//
+//            ((LinearLayout) linearLayout).addView(valueTV);
         }
     }
 }

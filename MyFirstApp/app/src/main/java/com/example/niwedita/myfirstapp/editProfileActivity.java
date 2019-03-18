@@ -200,11 +200,12 @@ public class editProfileActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
                     Log.e("Your Array Response", response);
-
+                    Toast.makeText(getApplicationContext(), "Profile updated Successfully", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(editProfileActivity.this, profile.class);
                     intent.putExtra("token",token);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-
+                    finish();
                 }
             }, new Response.ErrorListener() {
                 @Override
