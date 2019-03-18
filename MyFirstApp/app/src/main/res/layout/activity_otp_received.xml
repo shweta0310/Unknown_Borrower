@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ForgotPassword">
+    tools:context=".OtpReceived">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Forgot Password"
+        android:text="Enter OTP"
         android:textSize="24sp"
         android:textAlignment="center"
         android:padding="12dp"
@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First, let's find your account"
+        android:text="Find your account"
         android:paddingLeft="16dp"
         android:paddingTop="18dp"
         android:textSize="26sp"
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="Please enter your email or phone"
+        android:text="Please enter your OTP from mail received"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
@@ -39,14 +39,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email or phone *"
+        android:text="OTP"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="28dp"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textColor="#234"/>
 
     <EditText
-        android:id="@+id/name_editbox"
+        android:id="@+id/otptext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -85,12 +85,13 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginLeft="6dp"
-            android:text="Find account"
+            android:text="Change Password"
             android:textColor="#FFF"
             android:textSize="18sp"
             android:textAllCaps="false"
             android:background="#303F9F"/>
 
     </LinearLayout>
+
 
 </LinearLayout>
