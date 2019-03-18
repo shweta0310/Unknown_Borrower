@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".incomingAccepted">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="50">
+
+
+        <TextView android:id="@+id/incoming_accepted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Requests Accepted" android:textSize="20sp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/request_accepted_recyclerView"
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:background="#efefef"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/receivedBtn2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Received"
+            android:layout_marginBottom="0dp">
+        </Button>
+
+        <Button
+            android:id="@+id/acceptedBtn2"
+            android:layout_width="200dp"
+            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:text="Accepted"
+            android:layout_marginBottom="0dp">
+
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>

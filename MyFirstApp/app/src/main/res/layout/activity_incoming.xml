@@ -1,238 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="340dp">
+    android:orientation="vertical"
+    android:weightSum="100"
+    tools:context=".incoming">
 
-        <RelativeLayout
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="50">
+
+
+        <TextView android:id="@+id/incoming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Requests Received" android:textSize="20sp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/request_received_recycleView"
+            android:layout_marginTop="40dp"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
-            android:layout_weight=".5">
+            android:background="#efefef"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="@color/colorPrimary"/>
-
-            <TextView android:id="@+id/incoming1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:text="Request received" android:textSize="20sp"/>
-
-
-            <!--<View-->
-            <!--android:id="@+id/divider2"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="4dp"-->
-            <!--android:layout_alignParentStart="true"-->
-            <!--android:layout_marginStart="0dp"-->
-            <!--android:layout_marginTop="245dp"-->
-            <!--android:background="@color/colorAccent" />-->
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardView"
-                android:layout_width="match_parent"
-                android:layout_height="81dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginTop="35dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints">
-
-                <android.support.constraint.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="180dp"
-                        android:layout_height="59dp"
-                        android:layout_marginStart="44dp"
-                        android:layout_marginLeft="44dp"
-                        android:layout_marginTop="8dp"
-                        android:hint="@string/unresponded1"
-                        android:textSize="24sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <Button
-                        android:id="@+id/button5"
-                        android:layout_width="74dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="270dp"
-                        android:layout_marginLeft="270dp"
-                        android:layout_marginTop="11dp"
-                        android:hint="@string/button3"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="MissingConstraints" />
-
-                    <Button
-                        android:id="@+id/button7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="152dp"
-                        android:layout_marginLeft="152dp"
-                        android:layout_marginTop="11dp"
-                        android:hint="@string/button2"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="MissingConstraints" />
-
-
-                    <!--<Button-->
-                    <!--android:id="@+id/button"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="270dp"-->
-                    <!--android:layout_marginTop="12dp"-->
-                    <!--android:hint="@string/button2"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toTopOf="parent" />-->
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="44dp"
-                        android:layout_marginLeft="44dp"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginBottom="8dp"
-                        android:hint="@string/Date12"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                </android.support.constraint.ConstraintLayout>
-            </android.support.v7.widget.CardView>
-        </RelativeLayout>
-    </ScrollView>
-
-    <View
-        android:id="@+id/divider2"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:background="@color/colorPrimary" />
+        android:layout_height="wrap_content">
 
-    <!--</LinearLayout>-->
-    <!--</ScrollView>-->
+        <Button
+            android:id="@+id/receivedBtn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Received"
+            android:layout_marginBottom="50dp">
+        </Button>
 
-    <!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--android:layout_width="fill_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--xmlns:tools="http://schemas.android.com/tools">-->
+        <Button
+            android:id="@+id/acceptedBtn"
+            android:layout_width="200dp"
+            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:text="Accepted"
+            android:layout_marginBottom="50dp">
 
-    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+        </Button>
+    </LinearLayout>
+
+    <!--<View-->
+    <!--android:id="@+id/divider2"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_marginStart="0dp"-->
+    <!--android:layout_marginTop="0dp"-->
+    <!--android:background="@color/colorPrimary"-->
+    <!--android:layout_weight="1"/>-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_weight="49">-->
+
+    <!--<TextView android:id="@+id/outgoing2"-->
     <!--android:layout_width="wrap_content"-->
     <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="vertical">-->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="340dp">
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:text="Request Accepted" android:textSize="20sp"/>-->
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="450dp"
-            android:layout_weight=".5">
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/request_confirmed_recyclerView"-->
+    <!--android:layout_marginTop="40dp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
+    <!--</RelativeLayout>-->
 
-            <TextView android:id="@+id/incoming2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:text="Paid" android:textSize="20sp"/>
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardView2"
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginTop="35dp"
-                android:layout_marginBottom="184dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints">
-
-                <android.support.constraint.ConstraintLayout
-                    android:layout_width="368dp"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="180dp"
-                        android:layout_height="59dp"
-                        android:layout_marginStart="44dp"
-                        android:layout_marginLeft="44dp"
-                        android:layout_marginTop="10dp"
-                        android:hint="@string/payback1"
-                        android:textSize="24sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="MissingConstraints" />
-
-                    <Button
-                        android:id="@+id/button6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="250dp"
-                        android:layout_marginLeft="250dp"
-                        android:layout_marginTop="11dp"
-                        android:hint="@string/view_profile"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="MissingConstraints" />
-
-                    <TextView
-                        android:id="@+id/requestDateTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="18dp"
-                        android:layout_marginBottom="8dp"
-                        android:hint="@string/date2"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.694" />
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="16dp"
-                        android:layout_marginTop="28dp"
-                        android:layout_marginEnd="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="8dp"
-                        android:hint="@string/date3"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@id/requestDateTextView"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="1.0" />
-
-                </android.support.constraint.ConstraintLayout>
-            </android.support.v7.widget.CardView>
-        </RelativeLayout>
-    </ScrollView>
 </LinearLayout>
-    <!--</ScrollView>-->
