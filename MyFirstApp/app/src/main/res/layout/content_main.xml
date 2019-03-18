@@ -35,11 +35,10 @@
             android:id="@+id/incoming"
             android:layout_width="114dp"
             android:layout_height="60dp"
-            android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="596dp"
-            android:text="@string/incoming"
-            />
+            android:background="@drawable/my_border"
+            android:text="@string/incoming" />
 
         <Button
             android:id="@+id/search"
@@ -49,6 +48,7 @@
             android:layout_marginLeft="140dp"
             android:layout_marginTop="596dp"
             android:text="@string/search"
+            android:background="@drawable/my_border"
             />
 
         <Button
@@ -59,6 +59,7 @@
             android:layout_marginLeft="265dp"
             android:layout_marginTop="596dp"
             android:text="@string/outgoing"
+            android:background="@drawable/my_border"
              />
 
 

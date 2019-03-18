@@ -20,27 +20,27 @@ public class outgoing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_outgoing);
 
-        outgoingRequest_madeList = new ArrayList<>();
-        outgoingRequestConfirmedArrayList= new ArrayList<>();
-
-        for (int i = 0;i<10;i++)
-            outgoingRequest_madeList.add(new Outgoing_Request_made("Sid", "12-12-12"));
-
-        for( int i=0; i< 10;i++)
-            outgoingRequestConfirmedArrayList.add( new Outgoing_Request_Confirmed("Sidd","12-3-23","1-3-23"));
-
-
-        RecyclerView recyclerView = findViewById(R.id.request_made_recyclerView);
-        recyclerView.setAdapter(new Outgoing_RequestMadeAdapter(outgoingRequest_madeList, this));
-
-        RecyclerView recyclerView1 = findViewById(R.id.request_confirmed_recyclerView);
-        recyclerView1.setAdapter(new Outgoing_RequestConfirmedAdapter(outgoingRequestConfirmedArrayList,this));
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(this);
-
-        recyclerView1.setLayoutManager(layoutManager1);
+//        outgoingRequest_madeList = new ArrayList<>();
+//        outgoingRequestConfirmedArrayList= new ArrayList<>();
+//
+//        for (int i = 0;i<10;i++)
+//            outgoingRequest_madeList.add(new Outgoing_Request_made("Siddhartha", " Requested Date: 12-12-12"));
+//
+//        for( int i=0; i< 10;i++)
+//            outgoingRequestConfirmedArrayList.add( new Outgoing_Request_Confirmed("Siddhartha","Confirmed Date:12-3-23","Requested Date: 1-3-23"));
+//
+//
+//        RecyclerView recyclerView = findViewById(R.id.request_made_recyclerView);
+//        recyclerView.setAdapter(new Outgoing_RequestMadeAdapter(outgoingRequest_madeList, this));
+//
+//        RecyclerView recyclerView1 = findViewById(R.id.request_confirmed_recyclerView);
+//        recyclerView1.setAdapter(new Outgoing_RequestConfirmedAdapter(outgoingRequestConfirmedArrayList,this));
+//
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(layoutManager);
+//        RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(this);
+//
+//        recyclerView1.setLayoutManager(layoutManager1);
 
     }
 }

@@ -29,7 +29,7 @@ public class Outgoing_RequestConfirmedAdapter extends RecyclerView.Adapter<Outgo
             super(itemView);
             name= itemView.findViewById(R.id.nameTextView);
             reqDate=itemView.findViewById(R.id.requestDateTextView);
-            dueDate = itemView.findViewById(R.id.dueDateTextView);
+            dueDate = itemView.findViewById(R.id.ConfirmedDateTextView);
             pay= itemView.findViewById(R.id.payButton);
             viewProfile= itemView.findViewById(R.id.viewProfileButton);
         }

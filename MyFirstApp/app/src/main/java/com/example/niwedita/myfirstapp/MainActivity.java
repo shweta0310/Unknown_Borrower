@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void openoutgoing(){
-        Intent intent=new Intent(this,outgoing.class);
+        Intent intent=new Intent(this,TabLayoutActivity.class);
         intent.putExtra("token",token);
         startActivity(intent);
     }

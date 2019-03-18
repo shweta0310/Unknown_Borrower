@@ -41,4 +41,5 @@ dependencies {
     // volley http library
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.android.support:design:28.0.0'
 }
