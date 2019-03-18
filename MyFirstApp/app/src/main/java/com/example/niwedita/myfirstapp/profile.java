@@ -1,8 +1,13 @@
 package com.example.niwedita.myfirstapp;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +31,6 @@ public class profile extends AppCompatActivity {
 
     private TextView username, contactNum, email, city, state, organization, age, gender;
     private RequestQueue mQueue;
-
     String token=null;
 
     @Override
@@ -35,7 +39,8 @@ public class profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         this.token = getIntent().getStringExtra("token");
-        Log.e("Token",token);
+
+
 
         username = findViewById(R.id.username);
         contactNum = findViewById(R.id.contactNum);
