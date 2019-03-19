@@ -182,6 +182,26 @@
             android:hint="edit_country"
             android:inputType="textPersonName" />
 
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Wallet Amount"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="Wallet Amount"
+            android:inputType="number" />
+
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"

@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -25,6 +26,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name, city,organization;
         public ImageView thumbnail;
+        Button profileButton,sendRequest;
 
         public MyViewHolder(View view) {
             super(view);
@@ -32,12 +34,20 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
             city = view.findViewById(R.id.city);
             organization = view.findViewById(R.id.organization);
             thumbnail = view.findViewById(R.id.thumbnail);
-
-            view.setOnClickListener(new View.OnClickListener() {
+            profileButton=view.findViewById(R.id.profileView);
+            sendRequest=view.findViewById(R.id.sendRequest);
+            profileButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     // send selected contact in callback
                     listener.onContactSelected(contactListFiltered.get(getAdapterPosition()));
+                }
+            });
+            sendRequest.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // send selected contact in callback
+                    listener.onSendRequest(contactListFiltered.get(getAdapterPosition()));
                 }
             });
         }
@@ -115,6 +125,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
 
     public interface ContactsAdapterListener {
         void onContactSelected(Contact contact);
+        void onSendRequest(Contact contact);
     }
 
 }

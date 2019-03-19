@@ -20,18 +20,28 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class search extends AppCompatActivity implements ContactsAdapter.ContactsAdapterListener {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -39,6 +49,8 @@ public class search extends AppCompatActivity implements ContactsAdapter.Contact
     private List<Contact> contactList;
     private ContactsAdapter mAdapter;
     private SearchView searchView;
+    String token=null;
+    EditText enterAmount;
 
     // url to fetch contacts json
     //private static final String URL = "https://api.androidhive.info/json/contacts.json";
@@ -48,7 +60,10 @@ public class search extends AppCompatActivity implements ContactsAdapter.Contact
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        enterAmount=findViewById(R.id.addText);
         setSupportActionBar(toolbar);
+
+        this.token=getIntent().getStringExtra("token");
 
         // toolbar fancy stuff
         if (getSupportActionBar() != null) {
@@ -178,6 +193,82 @@ public class search extends AppCompatActivity implements ContactsAdapter.Contact
 
     @Override
     public void onContactSelected(Contact contact) {
-        Toast.makeText(getApplicationContext(), "Selected: " + contact.getName() + ", " + contact.getOrganization() + "," + contact.getCity(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Selected: " + contact.getName() + ", " + contact.getOrganization() + "," + contact.getCity()+","+ contact.getUserId(), Toast.LENGTH_LONG).show();
+        Log.e("UserId-intent content:",String.valueOf(contact.getUserId()));
+        Intent intent=new Intent(search.this,ViewProfile.class);
+        intent.putExtra("userId",String.valueOf(contact.getUserId()));
+        startActivity(intent);
+    }
+
+    @Override
+    public void onSendRequest(Contact contact) {
+
+        String checkAmount=enterAmount.getText().toString();
+        if (checkAmount.equals(""))
+            Toast.makeText(getApplicationContext(), "Enter Transaction Amount", Toast.LENGTH_LONG).show();
+        else {
+            String borrowerName, lenderName;
+            final double amount;
+            int borrowerId, lenderId;
+
+            borrowerName = getIntent().getStringExtra("borrowerName");
+            borrowerId = Integer.parseInt(getIntent().getStringExtra("borrowerId"));
+            lenderId = contact.getUserId();
+            lenderName = contact.getName();
+            amount = Double.parseDouble(enterAmount.getText().toString());
+
+            Toast.makeText(getApplicationContext(), "Transaction: " + borrowerId + ", " + borrowerName + ", " + lenderId + ", " + lenderName + ", " + amount, Toast.LENGTH_LONG).show();
+
+            try {
+                String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/transaction/sendRequest";
+                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+
+                JSONObject requestObject = new JSONObject();
+                requestObject.put("borrowerName", borrowerName);
+                requestObject.put("lenderId", lenderId);
+                requestObject.put("lenderName", lenderName);
+                requestObject.put("amount", amount);
+                requestObject.put("status", 1);
+
+                final String requestString = requestObject.toString();
+
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("RESPONSE-Send Request: ", response);
+                        Intent intent = new Intent(search.this, outgoing.class);
+                        intent.putExtra("amount",amount);
+                        startActivity(intent);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("RESPONSE-Send Request: ", error.toString());
+                    }
+                }) {
+
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        HashMap<String, String> params = new HashMap<String, String>();
+                        params.put("Content-Type", "application/json");
+                        params.put("Authorization", "Token " + token);
+                        return params;
+
+                    }
+
+                    @Override
+                    public byte[] getBody() {
+                        try {
+                            return requestString.getBytes();
+                        } catch (Exception e) {
+                            return null;
+                        }
+                    }
+                };
+                queue.add(stringRequest);
+            } catch (Exception e) {
+                Log.e("ERROR", e.toString());
+            }
+        }
     }
 }

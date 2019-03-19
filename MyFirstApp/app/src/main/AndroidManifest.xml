@@ -56,6 +56,7 @@
         <activity android:name=".editProfileActivity" />
         <activity android:name=".Wallet" />
         <activity android:name=".AddMoney" />
+        <activity android:name=".ViewProfile" />
     </application>
 
 </manifest>
