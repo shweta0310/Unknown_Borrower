@@ -86,6 +86,30 @@
             android:layout_marginLeft="10dp"
             android:layout_marginEnd="@dimen/row_padding"/>
 
+        <Button
+            android:id="@+id/profileView"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/organization"
+            android:layout_marginStart="151dp"
+            android:layout_marginTop="-52dp"
+            android:layout_toEndOf="@id/thumbnail"
+            android:background="#A1887F"
+            android:text="View Profile"
+            android:textColor="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/sendRequest"
+            android:layout_width="111dp"
+            android:layout_height="27dp"
+            android:layout_below="@+id/profileView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="36dp"
+            android:background="#A1887F"
+            android:text="Send Request"
+            android:textColor="@android:color/background_light" />
+
 
 
     </RelativeLayout>

@@ -20,15 +20,6 @@
         android:layout_height="match_parent"
         android:background="#fff">
 
-        <View
-            android:layout_width="30dp"
-            android:id="@+id/sideBar"
-            android:layout_height="match_parent"
-            app:layout_constraintRight_toLeftOf="@id/borrower_name"
-            android:layout_marginRight="14dp"
-            android:background="#20639b">
-        </View>
-
         <TextView
             android:id="@+id/borrower_name2"
             android:layout_width="180dp"
@@ -42,13 +33,14 @@
 
         <Button
             android:id="@+id/view_profile_button"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="270dp"
-            android:layout_marginTop="25dp"
-            android:background="#3caea3"
-            android:textColorHint="#fff"
-            android:hint="View Profile"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/my_border"
+            android:text="View Profile"
+            app:layout_constraintCircleRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
