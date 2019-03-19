@@ -4,11 +4,11 @@ public class transaction_details {
     private String transactionid;
     private String borrowername;
     private String lendername;
-    private int amount;
+    private double amount;
     private String requestdate;
     private String settleddate;
 
-    public transaction_details(String transactionid, String borrowername, String lendername, int amount, String requestdate, String settleddate) {
+    public transaction_details(String transactionid, String borrowername, String lendername, double amount, String requestdate, String settleddate) {
         this.transactionid = transactionid;
         this.borrowername = borrowername;
         this.lendername = lendername;
@@ -30,7 +30,7 @@ public class transaction_details {
         return lendername;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
