@@ -60,36 +60,36 @@ public class Outgoing_RequestMadeAdapter extends RecyclerView.Adapter<Outgoing_R
         myHolder.drop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("Drop","==========================================================================================");
                 try {
                     final String transactionId=myHolder.transaction.getText().toString();
                     JSONObject jsonBody = new JSONObject();
                     jsonBody.put("transactionId",Integer.parseInt(transactionId));
                     final String requestString = jsonBody.toString();
+                    Log.d("DropinsideTry","==========================================================================================");
 
 
-                String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/dropRequest";
+                    String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/dropRequest";
 
                 // write the volley code for Drop button
                 RequestQueue queue = Volley.newRequestQueue(context);
                 StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("dropResp",response);
-                        try{
-                                    if (response == "Succesfully deleted") {
+                        Log.d("dropResp",response+"================================================================================");
+
+//                                    if (response.compareTo("Successfully deleted")==0) {
                                         list.remove(j);
                                         Log.d("Drop","Successful");
                                         Toast.makeText(context,"Successfully Dropped",Toast.LENGTH_LONG).show();
                                         Outgoing_RequestMadeAdapter.this.notifyDataSetChanged();
-                                    }
-                                    else if(response =="Not successful") {
-                                        Log.d("Drop","Not Successful");
-                                        Toast.makeText(context,"Not Successful",Toast.LENGTH_LONG).show();
-                                    }
+//                                    }
+//                                    else if(response.compareTo("Not successful")==0) {
+//                                        Log.d("Drop","Not Successful");
+//                                        Toast.makeText(context,"Not Successful",Toast.LENGTH_LONG).show();
+//                                    }
 
-                                }catch (Exception e){
 
-                                }
                     }
                 }, new Response.ErrorListener() {
                     @Override
