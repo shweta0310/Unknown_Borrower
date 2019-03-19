@@ -41,10 +41,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="264dp"
         android:layout_marginBottom="11dp"
-        android:background="@color/colorPrimary"
         android:ellipsize="middle"
-        android:text="Add amount"
-        android:textColor="@android:color/background_light" />
+        android:background="@drawable/my_border"
+        android:text="Add amount" />
 
     <EditText
         android:id="@+id/addText"
@@ -56,9 +55,9 @@
         android:layout_marginStart="206dp"
         android:layout_marginEnd="34dp"
         android:layout_marginBottom="11dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/my_border"
         android:inputType="number"
-        android:textColor="@android:color/background_light" />
+        />
 
 </RelativeLayout>
 
