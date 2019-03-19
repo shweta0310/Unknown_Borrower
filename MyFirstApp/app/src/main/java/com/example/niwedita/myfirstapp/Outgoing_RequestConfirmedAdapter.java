@@ -3,13 +3,30 @@ package com.example.niwedita.myfirstapp;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.example.niwedita.myfirstapp.TabLayoutActivity.token1;
 
 public class Outgoing_RequestConfirmedAdapter extends RecyclerView.Adapter<Outgoing_RequestConfirmedAdapter.requestconfirmedHolder>{
 
@@ -45,8 +62,8 @@ public class Outgoing_RequestConfirmedAdapter extends RecyclerView.Adapter<Outgo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Outgoing_RequestConfirmedAdapter.requestconfirmedHolder requestconfirmedHolder, int i) {
-
+    public void onBindViewHolder(@NonNull final Outgoing_RequestConfirmedAdapter.requestconfirmedHolder requestconfirmedHolder, int i) {
+        final int j=i;
         Outgoing_Request_Confirmed outgoing_request_confirmed= outgoing_request_confirmedArrayList.get(i);
         requestconfirmedHolder.name.setText(outgoing_request_confirmed.getName());
         requestconfirmedHolder.reqDate.setText(outgoing_request_confirmed.getRequestDate());
@@ -59,6 +76,67 @@ public class Outgoing_RequestConfirmedAdapter extends RecyclerView.Adapter<Outgo
             @Override
             public void onClick(View v) {
                 // write the code for pay button
+
+                try {
+                    final String transactionId=requestconfirmedHolder.transaction.getText().toString();
+                    JSONObject jsonBody = new JSONObject();
+                    jsonBody.put("transactionId",Integer.parseInt(transactionId));
+                    final String requestString = jsonBody.toString();
+
+
+                    String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/pay_back";
+
+                    // write the volley code for Drop button
+                    RequestQueue queue = Volley.newRequestQueue(context);
+                    StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.d("Response ",response);
+
+                            if (response.contains("payment successful")) {
+                            Log.d("if","================================================");
+                            outgoing_request_confirmedArrayList.remove(j);
+                            Toast.makeText(context,"Successfully Paid",Toast.LENGTH_LONG).show();
+                            Outgoing_RequestConfirmedAdapter.this.notifyDataSetChanged();
+
+                            }
+                            else if(response.contains("insufficient funds")) {
+                                Log.d("elseif","================================================");
+                                Toast.makeText(context,"Balance Not Sufficient",Toast.LENGTH_LONG).show();
+                            }
+                            Log.d("log2","================================================");
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e("error is ", "" + error);
+                        }
+                    }) {
+
+                        //This is for Headers If You Needed
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            Map<String, String> headers = new HashMap<>();
+                            headers.put("Content-Type", "application/json");
+                            headers.put("Authorization", "Token " + token1);
+                            return headers;
+                        }
+
+                        @Override
+                        public byte[] getBody() {
+                            try{
+                                return requestString.getBytes();
+                            }catch (Exception e){
+                                return null;
+                            }
+                        }
+                    };
+
+                    queue.add(request);
+
+                }catch (JSONException e){
+                    Log.d("jsonException ",e.toString());
+                }
             }
         });
 

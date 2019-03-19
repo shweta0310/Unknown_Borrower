@@ -29,12 +29,8 @@ public class tab2 extends Fragment {
         //Change R.layout.tab1 in you classes
         View view= inflater.inflate(R.layout.tab2, container, false);
 
-
-
-
         RecyclerView recyclerView1 = view.findViewById(R.id.tab2request_confirmed_recyclerView);
         recyclerView1.setAdapter(new Outgoing_RequestConfirmedAdapter(outgoingRequestConfirmedArrayList,getContext()));
-
         RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(getContext());
         recyclerView1.setLayoutManager(layoutManager1);
 
