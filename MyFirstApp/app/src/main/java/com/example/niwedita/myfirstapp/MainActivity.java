@@ -20,11 +20,26 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Button;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     DrawerLayout drawerLayout;
 
     String token=null;
+    private RequestQueue mQueue; //for getting the user's name
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +85,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        mQueue = Volley.newRequestQueue(this);
+
     }
 
     public void openincoming(){
@@ -79,20 +96,67 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void opensearch(){
-        Intent intent=new Intent(this,search.class);
-        intent.putExtra("token",token);
-        startActivity(intent);
+
+        final String borrowerId;
+        borrowerId = getIntent().getStringExtra("borrowerId");
+
+        //Get user's name ( To add in Transaction table )
+        String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/profile/getProfile";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response)
+                    {
+                        String str = response.toString();
+                        Log.d("INFO",str);
+                        try
+                        {
+                            String borrowerName=response.getString("name");
+                            Intent intent=new Intent(MainActivity.this,search.class);
+                            intent.putExtra("token",token);
+                            intent.putExtra("borrowerId",borrowerId);
+                            intent.putExtra("borrowerName",borrowerName);
+                            startActivity(intent);
+                        }
+                        catch (JSONException e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+                error.printStackTrace();
+            }
+        })
+
+        {
+            @Override
+            public Map getHeaders() throws AuthFailureError
+            {
+                HashMap headers = new HashMap();
+                headers.put("Content-Type", "application/json");
+                headers.put("Authorization", "Token " + token);
+                return headers;
+            }
+        };
+
+        mQueue.add(request);
+
     }
 
     public void openoutgoing(){
-        Intent intent=new Intent(this,TabLayoutActivity.class);
+        Intent intent=new Intent(this,outgoing.class);
         intent.putExtra("token",token);
         startActivity(intent);
     }
 
     @Override
-     public boolean onNavigationItemSelected(@NonNull MenuItem item){
+    public boolean onNavigationItemSelected(@NonNull MenuItem item){
         String itemName=(String)item.getTitle();
+
         closeDrawer();
 
         switch (item.getItemId()){

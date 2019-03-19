@@ -6,6 +6,8 @@ public class Contact {
     String image;
     String city;
     String organization;
+    String num;
+    int userId;
 
     public Contact() {
     }
@@ -27,6 +29,14 @@ public class Contact {
     public String getOrganization() {
 
         return organization;
+    }
+    public String getContact() {
+
+        return num;
+    }
+    public int getUserId() {
+
+        return userId;
     }
 }
 
