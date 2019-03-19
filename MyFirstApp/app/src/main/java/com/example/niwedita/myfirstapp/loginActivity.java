@@ -102,10 +102,12 @@ public class loginActivity extends AppCompatActivity {
                                 JsonParser parser = new JsonParser();
                                 JsonElement jsonObject = parser.parse(response);
                                 String token = jsonObject.getAsJsonObject().get("token").getAsString();
+                                String userId = jsonObject.getAsJsonObject().get("userId").getAsString();
                                 Log.e("token",token);
 
                                 Intent intent=new Intent(loginActivity.this,MainActivity.class);
                                 intent.putExtra("token",token);
+                                intent.putExtra("borrowerId",userId);
                                 startActivity(intent);
                             }catch (Exception e){
                                 passwordEditText.setError("Wrong mobile or password!");

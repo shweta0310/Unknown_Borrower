@@ -38,14 +38,8 @@ public class tab1 extends Fragment {
         //Change R.layout.tab1 in you classes
         View view = inflater.inflate(R.layout.tab1, container, false);
 
-
-
-
-
         RecyclerView recyclerView = view.findViewById(R.id.tab1request_made_recyclerView);
-
         recyclerView.setAdapter(new Outgoing_RequestMadeAdapter(outgoingRequest_madeList, getContext()));
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
