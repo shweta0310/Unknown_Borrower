@@ -120,7 +120,7 @@ public class TabLayoutActivity extends AppCompatActivity implements TabLayout.On
                             {
                                 JSONObject transaction = response.getJSONObject(i);
                                 Log.d("infoRM","===================================="+transaction.toString());
-                                Outgoing_Request_made x =new Outgoing_Request_made(transaction.getString("lenderName"), " Req on:"+transaction.getString("requestedDate"),transaction.getString("transactionId"));
+                                Outgoing_Request_made x =new Outgoing_Request_made(transaction.getString("lenderName"), " Req on "+transaction.getString("requestedDate"),transaction.getString("transactionId"),"Rs "+transaction.getString("amount")+"/-");
                                 Log.d("InfoRM",x.toString());
                                 outgoingRequest_madeList.add(x);
                             }
@@ -169,7 +169,7 @@ public class TabLayoutActivity extends AppCompatActivity implements TabLayout.On
                             {
                                 JSONObject transaction = response.getJSONObject(i);
                                 Log.d("infoRC",transaction.toString());
-                                Outgoing_Request_Confirmed x =new Outgoing_Request_Confirmed(transaction.getString("lenderName"),"Conf on: " + transaction.getString("acceptedDate"),"Req on: "+transaction.getString("requestedDate"),transaction.getString("transactionId"));
+                                Outgoing_Request_Confirmed x =new Outgoing_Request_Confirmed(transaction.getString("lenderName"),"Conf on " + transaction.getString("acceptedDate"),"Req on "+transaction.getString("requestedDate"),transaction.getString("transactionId"),"Rs "+transaction.getString("amount")+"/-");
                                 Log.d("InfoRC",x.toString());
                                 outgoingRequestConfirmedArrayList.add(x);
                             }

@@ -23,15 +23,15 @@ public class Outgoing_RequestConfirmedAdapter extends RecyclerView.Adapter<Outgo
 
     class requestconfirmedHolder extends RecyclerView.ViewHolder{
 
-        TextView name,reqDate, dueDate,transaction;
-        Button pay,viewProfile;
+        TextView name,reqDate, dueDate,transaction,amount;
+        Button pay;
         public requestconfirmedHolder(@NonNull View itemView) {
             super(itemView);
             name= itemView.findViewById(R.id.nameTextView);
             reqDate=itemView.findViewById(R.id.requestDateTextView);
             dueDate = itemView.findViewById(R.id.ConfirmedDateTextView);
             pay= itemView.findViewById(R.id.payButton);
-            viewProfile= itemView.findViewById(R.id.viewProfileButton);
+            amount=itemView.findViewById(R.id.amountTextview);
             transaction=itemView.findViewById(R.id.transConID);
         }
     }
@@ -52,18 +52,16 @@ public class Outgoing_RequestConfirmedAdapter extends RecyclerView.Adapter<Outgo
         requestconfirmedHolder.reqDate.setText(outgoing_request_confirmed.getRequestDate());
         requestconfirmedHolder.dueDate.setText(outgoing_request_confirmed.getDueDate());
         requestconfirmedHolder.transaction.setText(outgoing_request_confirmed.getTransaction());
+        requestconfirmedHolder.amount.setText(outgoing_request_confirmed.getAmount());
+
+
         requestconfirmedHolder.pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // write the code for pay button
             }
         });
-        requestconfirmedHolder.viewProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // write the code for view Profile
-            }
-        });
+
     }
 
     @Override

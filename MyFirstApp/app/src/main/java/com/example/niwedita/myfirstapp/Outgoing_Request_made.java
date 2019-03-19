@@ -2,13 +2,22 @@ package com.example.niwedita.myfirstapp;
 
 public class Outgoing_Request_made {
     String name;
-    String date,transaction;
+    String date,transaction,amount2;
 
 
-    public Outgoing_Request_made(String name, String date,String transactionId) {
+    public Outgoing_Request_made(String name, String date,String transactionId,String amount) {
         this.name = name;
         this.date = date;
         this.transaction=transactionId;
+        this.amount2=amount;
+    }
+
+    public String getAmount2() {
+        return amount2;
+    }
+
+    public void setAmount2(String amount2) {
+        this.amount2 = amount2;
     }
 
     public String getTransaction() {

@@ -24,12 +24,15 @@
 
         <TextView
             android:id="@+id/nameTextView"
-            android:layout_width="150dp"
+            android:layout_width="183dp"
             android:layout_height="36dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="15dp"
+            android:layout_marginBottom="4dp"
             android:text="Siddhartha"
             android:textSize="24sp"
+            android:textColor="@color/contact_name"
+            app:layout_constraintBottom_toTopOf="@+id/requestDateTextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
@@ -38,53 +41,40 @@
             android:id="@+id/payButton"
             android:layout_width="74dp"
             android:layout_height="38dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="46dp"
-            android:layout_marginBottom="33dp"
-            android:background="@drawable/my_border"
+            android:layout_marginEnd="39dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/my_button"
             android:text="PAY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintCircleRadius="5dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewProfileButton"
-            tools:ignore="MissingConstraints" />
-
-        <Button
-            android:id="@+id/viewProfileButton"
-            android:layout_width="110dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="31dp"
-            android:background="@drawable/my_border"
-            android:text="View Profile"
-            app:layout_constraintCircleRadius="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/requestDateTextView"
             android:layout_width="250dp"
             android:layout_height="30dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="7dp"
             android:hint="@string/date2"
             android:text="Requested Date"
             app:layout_constraintBottom_toTopOf="@+id/ConfirmedDateTextView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewProfileButton" />
+            app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
         <TextView
             android:id="@+id/ConfirmedDateTextView"
             android:layout_width="250dp"
             android:layout_height="30dp"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="14dp"
             android:layout_marginBottom="15dp"
             android:hint="@string/date3"
             android:text="Confirmed Date"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/payButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/requestDateTextView" />
 
@@ -93,12 +83,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginBottom="23dp"
+            android:layout_marginBottom="20dp"
             android:text="TextView"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/requestDateTextView"
-            app:layout_constraintEnd_toStartOf="@+id/viewProfileButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:layout_editor_absoluteX="208dp" />
+
+        <TextView
+            android:id="@+id/amountTextview"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:paddingLeft="1dp"
+            android:paddingTop="8dp"
+            android:paddingRight="1dp"
+            android:paddingBottom="1dp"
+            android:text="Rs  3000/-"
+            android:textColor="@color/contact_name"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toTopOf="@+id/payButton"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
