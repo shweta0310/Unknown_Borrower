@@ -1,7 +1,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -10,205 +11,168 @@
 
         <TextView
             android:id="@+id/textView18"
-            android:layout_width="369dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="250dp"
-            android:text="Enter Personal Details"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Name"
-            android:textSize="24sp" />
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Enter Personal Details"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp" />
+
 
         <EditText
             android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/my_border"
             android:ems="10"
-            android:hint="edit_name"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:hint="Name"
             android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Age"
-            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/my_border"
             android:ems="10"
-            android:hint="edit_age"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:hint="Age"
             android:inputType="number" />
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Gender"
-            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/gender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/my_border"
             android:ems="10"
-            android:hint="edit_gender"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:hint="Gender(M/F)"
             android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="Occupation"
-            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/occupation"
-            android:layout_width="359dp"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/my_border"
             android:ems="10"
-            android:hint="edit_occupation"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:hint="Occupation"
             android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="Organization"
-            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/organization"
-            android:layout_width="370dp"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/my_border"
             android:ems="10"
-            android:hint="edit_organization"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:hint="Organization"
             android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="City"
-            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/city"
-            android:layout_width="379dp"
-            android:layout_height="47dp"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/my_border"
             android:ems="10"
-            android:hint="edit_city"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:hint="City"
             android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="State"
-            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/state"
-            android:layout_width="363dp"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/my_border"
             android:ems="10"
-            android:hint="edit_state"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:hint="State"
             android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="Country"
-            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/country"
-            android:layout_width="368dp"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/my_border"
             android:ems="10"
-            android:hint="edit_country"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:hint="Country"
             android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/textView17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Wallet Amount"
-            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/wallet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/my_border"
             android:ems="10"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
             android:hint="Wallet Amount"
             android:inputType="number" />
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="161dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="162dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="106dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="106dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/my_border"
+            android:onClick="loginButtonClicked"
+            android:textStyle="bold"
             android:text="SIGN UP" />
 
     </LinearLayout>

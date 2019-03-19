@@ -1,7 +1,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,12 +14,13 @@
             android:id="@+id/register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:text="REGISTER"
+            android:textColor="#FFFFFF"
             android:textSize="40sp" />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/requestDateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,20 +28,24 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="Email"
-            android:textSize="24sp" />
+            android:textSize="24sp" />-->
 
         <EditText
             android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/my_border"
             android:ems="10"
-            android:hint="edit_email"
-            android:inputType="textEmailAddress" />
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textAlignment="center" />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,20 +53,24 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="Phone"
-            android:textSize="24sp" />
+            android:textSize="24sp" />-->
 
         <EditText
             android:id="@+id/phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/my_border"
             android:ems="10"
-            android:hint="edit_phone"
-            android:inputType="phone" />
+            android:hint="Mobile Number"
+            android:inputType="phone"
+            android:paddingLeft="10dp"
+            android:textAlignment="center" />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,28 +78,39 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="Password"
-            android:textSize="24sp" />
+            android:textSize="24sp" />-->
 
         <EditText
             android:id="@+id/password"
             style="@style/Animation.AppCompat.Tooltip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/my_border"
             android:ems="10"
-            android:hint="edit_password"
-            android:inputType="textPassword" />
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:textAlignment="center" />
 
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="161dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="162dp"
-            android:text="REGISTER" />
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="106dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="106dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/my_border"
+            android:onClick="loginButtonClicked"
+            android:text="REGISTER"
+            android:textStyle="bold" />
+
+
     </LinearLayout>
 </ScrollView>
