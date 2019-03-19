@@ -28,30 +28,35 @@
             android:layout_marginTop="8dp"
             android:text="@string/unresponded1"
             android:textSize="24sp"
+            android:textColor="@color/contact_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/pay_now"
-            android:layout_width="74dp"
+            android:layout_width="110dp"
             android:layout_height="38dp"
             android:layout_marginTop="60dp"
-            android:layout_marginStart="271dp"
+            android:layout_marginEnd="41dp"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/my_border"
             android:text="Pay"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintCircleRadius="5dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/reject_button"
             android:layout_width="110dp"
             android:layout_height="38dp"
-            android:layout_marginTop="15dp"
             android:layout_marginStart="251dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="41dp"
             android:background="@drawable/my_border"
             android:text="Decline"
             app:layout_constraintCircleRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,6 +67,8 @@
             android:layout_marginStart="44dp"
             android:layout_marginBottom="10dp"
             android:hint="Amount : Rs.2000"
+            android:text="Amount : Rs 2000/-"
+            android:textColor="@color/contact_name"
             app:layout_constraintBottom_toBottomOf="@+id/borrower_name"
             app:layout_constraintStart_toStartOf="parent" />
 

@@ -28,12 +28,13 @@
             android:layout_marginTop="8dp"
             android:text="@string/unresponded1"
             android:textSize="24sp"
+            android:textColor="@color/contact_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/view_profile_button"
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
             android:layout_marginStart="250dp"
@@ -51,6 +52,8 @@
             android:layout_marginStart="44dp"
             android:layout_marginBottom="10dp"
             android:hint="Amount : Rs.2000"
+            android:text="Amount Rs 2000/-"
+            android:textColor="@color/contact_name"
             app:layout_constraintBottom_toBottomOf="@+id/borrower_name2"
             app:layout_constraintStart_toStartOf="parent" />
 
