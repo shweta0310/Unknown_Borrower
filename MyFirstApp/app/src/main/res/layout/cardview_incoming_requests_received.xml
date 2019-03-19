@@ -5,7 +5,7 @@
     android:layout_height="110dp"
     android:layout_alignParentStart="true"
     android:layout_alignParentLeft="true"
-    app:cardCornerRadius="0dp"
+    app:cardCornerRadius="10dp"
     android:layout_marginTop="5dp"
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
@@ -20,15 +20,6 @@
         android:layout_height="match_parent"
         android:background="#fff">
 
-        <View
-            android:layout_width="30dp"
-            android:id="@+id/sideBar"
-            android:layout_height="match_parent"
-            app:layout_constraintRight_toLeftOf="@id/borrower_name"
-            android:layout_marginRight="14dp"
-            android:background="#20639b">
-        </View>
-
         <TextView
             android:id="@+id/borrower_name"
             android:layout_width="180dp"
@@ -42,25 +33,25 @@
 
         <Button
             android:id="@+id/pay_now"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="270dp"
-            android:layout_marginTop="55dp"
-            android:background="#49c39e"
-            android:textColorHint="#fff"
-            android:hint="Pay Now"
+            android:layout_width="74dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="271dp"
+            android:background="@drawable/my_border"
+            android:text="Pay"
+            app:layout_constraintCircleRadius="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/reject_button"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="270dp"
-            android:layout_marginTop="12dp"
-            android:hint="Reject"
-            android:textColorHint="#fff"
-            android:background="#ed553b"
+            android:layout_width="110dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="251dp"
+            android:background="@drawable/my_border"
+            android:text="Decline"
+            app:layout_constraintCircleRadius="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
