@@ -50,7 +50,7 @@ public class Incoming_Request_AcceptedAdapter extends RecyclerView.Adapter<Incom
 
     class MyHolder extends RecyclerView.ViewHolder{
 
-        TextView borrower_name2, requested_date2, amount2, payDate;
+        TextView borrower_name2, requested_date2, amount2, payDate,transaction;
         Button view_profile;
         public MyHolder(@NonNull View itemView) {
             super(itemView);
@@ -58,6 +58,8 @@ public class Incoming_Request_AcceptedAdapter extends RecyclerView.Adapter<Incom
             requested_date2 = itemView.findViewById(R.id.requested_date2);
             amount2 = itemView.findViewById(R.id.amount_request2);
             payDate = itemView.findViewById(R.id.pay_date);
+            transaction=itemView.findViewById(R.id.transactionReqAcc);
+
         }
 
 

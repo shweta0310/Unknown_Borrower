@@ -4,11 +4,21 @@ public class Incoming_Request_Received {
     String name;
     String date;
     String amount;
+    String transaction;
 
-    public Incoming_Request_Received(String name, String date, String amount) {
+    public Incoming_Request_Received(String name, String date, String amount,String transactionID ) {
         this.name = name;
         this.date = date;
         this.amount = amount;
+        this.transaction=transactionID;
+    }
+
+    public String getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(String transaction) {
+        this.transaction = transaction;
     }
 
     public String getName() {

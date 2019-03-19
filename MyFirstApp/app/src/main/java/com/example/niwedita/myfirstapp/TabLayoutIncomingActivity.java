@@ -106,7 +106,7 @@ public class TabLayoutIncomingActivity extends AppCompatActivity implements TabL
                             {
                                 JSONObject transaction = response.getJSONObject(i);
                                 Log.d("infoRM","===================================="+transaction.toString());
-                                Incoming_Request_Received x = new Incoming_Request_Received(transaction.getString("borrowerName"), " Req on "+transaction.getString("requestedDate"), "Rs "+transaction.getString("amount")+"/-");
+                                Incoming_Request_Received x = new Incoming_Request_Received(transaction.getString("borrowerName"), " Req on "+transaction.getString("requestedDate"), "Rs "+transaction.getString("amount")+"/-",transaction.getString("transactionId"));
                                 Log.d("InfoRM",x.toString());
                                 incomingRequestReceivedArrayList.add(x);
                             }
@@ -153,7 +153,7 @@ public class TabLayoutIncomingActivity extends AppCompatActivity implements TabL
                             {
                                 JSONObject transaction = response.getJSONObject(i);
                                 Log.d("infoRC",transaction.toString());
-                                Incoming_Request_Accepted x =new Incoming_Request_Accepted(transaction.getString("borrowerName"),"Accepted on " + transaction.getString("acceptedDate"),"Req on "+transaction.getString("requestedDate"),"Rs "+transaction.getString("amount")+"/-");
+                                Incoming_Request_Accepted x =new Incoming_Request_Accepted(transaction.getString("borrowerName"),"Accepted on " + transaction.getString("acceptedDate"),"Req on "+transaction.getString("requestedDate"),"Rs "+transaction.getString("amount")+"/-",transaction.getString("transactionId"));
                                 Log.d("InfoRC",x.toString());
                                 incomingRequest_madeList.add(x);
                             }
