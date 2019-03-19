@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="596dp"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".search">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,11 +21,46 @@
 
     </android.support.design.widget.AppBarLayout>
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="55dp"
+        android:layout_marginBottom="75dp"
         android:scrollbars="vertical" />
 
-</android.support.design.widget.CoordinatorLayout>
+
+    <Button
+        android:id="@+id/addAmount"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/recycler_view"
+        android:layout_alignEnd="@+id/recycler_view"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="264dp"
+        android:layout_marginBottom="11dp"
+        android:background="@color/colorPrimary"
+        android:ellipsize="middle"
+        android:text="Add amount"
+        android:textColor="@android:color/background_light" />
+
+    <EditText
+        android:id="@+id/addText"
+        android:layout_width="171dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/recycler_view"
+        android:layout_alignEnd="@+id/recycler_view"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="206dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="11dp"
+        android:background="@color/colorPrimary"
+        android:inputType="text"
+        android:textColor="@android:color/background_light" />
+
+</RelativeLayout>
+
+
+
