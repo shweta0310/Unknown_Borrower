@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -14,12 +15,27 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 import static android.support.v4.content.ContextCompat.getSystemService;
+import static com.example.niwedita.myfirstapp.TabLayoutActivity.token1;
 
 public class Incoming_Request_ReceivedAdapter extends RecyclerView.Adapter<Incoming_Request_ReceivedAdapter.MyHolder> {
 
@@ -42,52 +58,134 @@ public class Incoming_Request_ReceivedAdapter extends RecyclerView.Adapter<Incom
     public void onBindViewHolder(@NonNull final Incoming_Request_ReceivedAdapter.MyHolder myHolder, int i) {
 
         Incoming_Request_Received incoming_request_received = list.get(i);
-
+        final int j=i;
         myHolder.requested_date.setText(incoming_request_received.getDate());
         myHolder.borrower_name.setText(incoming_request_received.getName());
         myHolder.amount.setText(incoming_request_received.getAmount());
+        myHolder.transaction.setText(incoming_request_received.getTransaction());
 
 
         myHolder.reject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myHolder.pay_now.setVisibility(View.INVISIBLE);
-                myHolder.reject.setText("REJECTED");
-                myHolder.reject.setTextColor(Color.parseColor("#ffffff"));
+                try {
+                    final String transactionId=myHolder.transaction.getText().toString();
+                    JSONObject jsonBody = new JSONObject();
+                    jsonBody.put("transactionId",Integer.parseInt(transactionId));
+                    final String requestString = jsonBody.toString();
+
+
+                    String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/incoming/decline";
+
+                    // write the volley code for Drop button
+                    RequestQueue queue = Volley.newRequestQueue(context);
+                    StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.d("dropResp",response);
+                            list.remove(j);
+                            Log.d("Drop","Successful");
+                            Toast.makeText(context,"Successfully Dropped",Toast.LENGTH_LONG).show();
+                            Incoming_Request_ReceivedAdapter.this.notifyDataSetChanged();
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e("error is ", "" + error);
+                        }
+                    }) {
+
+                        //This is for Headers If You Needed
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            Map<String, String> headers = new HashMap<>();
+                            headers.put("Content-Type", "application/json");
+                            headers.put("Authorization", "Token " + token1);
+                            return headers;
+                        }
+
+                        @Override
+                        public byte[] getBody() {
+                            try{
+                                return requestString.getBytes();
+                            }catch (Exception e){
+                                return null;
+                            }
+                        }
+                    };
+
+                    queue.add(request);
+
+                }catch (JSONException e){
+                    Log.d("jsonException",e.toString());
+                }
+
+
             }
         });
-
         myHolder.pay_now.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // inflate the layout of the popup window
-                LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
-
-                // Inflate the custom layout/view
-                View popupView = inflater.inflate(R.layout.pay_now_popup,null);
-
-                // create the popup window
-                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-                final PopupWindow popupWindow = new PopupWindow(popupView, width, height, false);
-
-                // show the popup window
-                // which view you pass in doesn't matter, it is only used for the window tolken
-                popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
-
-                // dismiss the popup window when touched
-                popupView.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        popupWindow.dismiss();
-                        myHolder.reject.setVisibility(View.INVISIBLE);
-                        myHolder.pay_now.setText("PAID");
-                        myHolder.pay_now.setTextColor(Color.parseColor("#ffffff"));
-                        return true;
-                    }
-                });
+                try {
+                    final String transactionId=myHolder.transaction.getText().toString();
+                    JSONObject jsonBody = new JSONObject();
+                    jsonBody.put("transactionId",Integer.parseInt(transactionId));
+                    final String requestString = jsonBody.toString();
 
 
+                    String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/incoming/pay";
+
+                    // write the volley code for Drop button
+                    RequestQueue queue = Volley.newRequestQueue(context);
+                    StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.d("Response ",response);
+
+                            if (response.contains("payment successful")) {
+                                Log.d("if","================================================");
+                                list.remove(j);
+                                Toast.makeText(context,"Successfully Paid",Toast.LENGTH_LONG).show();
+                                Incoming_Request_ReceivedAdapter.this.notifyDataSetChanged();
+
+                            }
+                            else if(response.contains("insufficient funds")) {
+                                Log.d("elseif","================================================");
+                                Toast.makeText(context,"Balance Not Sufficient",Toast.LENGTH_LONG).show();
+                            }
+                            Log.d("log2","================================================");
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e("error is ", "" + error);
+                        }
+                    }) {
+
+                        //This is for Headers If You Needed
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            Map<String, String> headers = new HashMap<>();
+                            headers.put("Content-Type", "application/json");
+                            headers.put("Authorization", "Token " + token1);
+                            return headers;
+                        }
+
+                        @Override
+                        public byte[] getBody() {
+                            try{
+                                return requestString.getBytes();
+                            }catch (Exception e){
+                                return null;
+                            }
+                        }
+                    };
+
+                    queue.add(request);
+
+                }catch (JSONException e){
+                    Log.d("jsonException ",e.toString());
+                }
             }
         });
     }
@@ -100,7 +198,7 @@ public class Incoming_Request_ReceivedAdapter extends RecyclerView.Adapter<Incom
 
     class MyHolder extends RecyclerView.ViewHolder{
 
-        TextView borrower_name, requested_date, amount;
+        TextView borrower_name, requested_date, amount, transaction;
         Button reject,pay_now;
         View sideBar;
         public MyHolder(@NonNull View itemView) {
@@ -110,6 +208,7 @@ public class Incoming_Request_ReceivedAdapter extends RecyclerView.Adapter<Incom
             reject = itemView.findViewById(R.id.reject_button);
             pay_now = itemView.findViewById(R.id.pay_now);
             amount = itemView.findViewById(R.id.amount_request);
+            transaction= itemView.findViewById(R.id.transactionReqRec);
         }
 
 

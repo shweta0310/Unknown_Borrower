@@ -20,7 +20,7 @@ public class incomingAccepted extends AppCompatActivity {
         incoming_request_acceptedList = new ArrayList<>();
 
         for (int i = 0; i < 10; i++)
-            incoming_request_acceptedList.add(new Incoming_Request_Accepted("Nisarg Joshi", "20/02/2019", "10/02/1999","Rs. 1000"));
+            incoming_request_acceptedList.add(new Incoming_Request_Accepted("Nisarg Joshi", "20/02/2019", "10/02/1999","Rs. 1000","131"));
 
         RecyclerView recyclerView = findViewById(R.id.request_accepted_recyclerView);
         recyclerView.setAdapter(new Incoming_Request_AcceptedAdapter(incoming_request_acceptedList, this));
