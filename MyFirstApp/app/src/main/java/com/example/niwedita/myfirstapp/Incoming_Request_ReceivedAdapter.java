@@ -110,7 +110,6 @@ public class Incoming_Request_ReceivedAdapter extends RecyclerView.Adapter<Incom
             reject = itemView.findViewById(R.id.reject_button);
             pay_now = itemView.findViewById(R.id.pay_now);
             amount = itemView.findViewById(R.id.amount_request);
-            sideBar = itemView.findViewById(R.id.sideBar);
         }
 
 
