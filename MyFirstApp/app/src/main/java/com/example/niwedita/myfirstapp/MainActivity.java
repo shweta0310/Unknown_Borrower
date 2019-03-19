@@ -170,6 +170,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 opentransaction();
                 break;
             case R.id.item_d:
+                openlogin();
                 break;
             case R.id.item_e:
                 openAccountSetting();
@@ -201,6 +202,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void openprofile(){
         Intent intent=new Intent(this,profile.class);
         intent.putExtra("token",token);
+        startActivity(intent);
+    }
+
+    public void openlogin(){
+        Intent intent=new Intent(this,loginActivity.class);
         startActivity(intent);
     }
 
