@@ -1,13 +1,22 @@
 package com.example.niwedita.myfirstapp;
 
 public class Outgoing_Request_Confirmed {
-    String name,dueDate,requestDate,transaction;
+    String name,dueDate,requestDate,transaction,amount;
 
-    public Outgoing_Request_Confirmed(String name, String dueDate, String requestDate,String transactionID) {
+    public Outgoing_Request_Confirmed(String name, String dueDate, String requestDate,String transactionID,String amount) {
         this.name = name;
         this.dueDate = dueDate;
         this.requestDate = requestDate;
         this.transaction=transactionID;
+        this.amount=amount;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 
     public String getTransaction() {

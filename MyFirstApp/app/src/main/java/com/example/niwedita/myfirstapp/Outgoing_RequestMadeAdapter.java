@@ -57,12 +57,14 @@ public class Outgoing_RequestMadeAdapter extends RecyclerView.Adapter<Outgoing_R
         myHolder.date.setText(outgoingRequest_made.getDate());
         myHolder.name.setText(outgoingRequest_made.getName());
         myHolder.transaction.setText(outgoingRequest_made.getTransaction());
+        myHolder.amount2.setText(outgoingRequest_made.getAmount2());
         myHolder.drop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("Drop","==========================================================================================");
                 try {
                     final String transactionId=myHolder.transaction.getText().toString();
+                    Log.d("Trsab",transactionId+"=============================");
                     JSONObject jsonBody = new JSONObject();
                     jsonBody.put("transactionId",Integer.parseInt(transactionId));
                     final String requestString = jsonBody.toString();
@@ -137,7 +139,7 @@ public class Outgoing_RequestMadeAdapter extends RecyclerView.Adapter<Outgoing_R
 
     class MyHolder extends RecyclerView.ViewHolder{
 
-        TextView name, date , transaction;
+        TextView name, date , transaction,amount2;
         Button drop;
         public MyHolder(@NonNull View itemView) {
             super(itemView);
@@ -145,6 +147,7 @@ public class Outgoing_RequestMadeAdapter extends RecyclerView.Adapter<Outgoing_R
             date = itemView.findViewById(R.id.date);
             drop = itemView.findViewById(R.id.drop_button);
             transaction=itemView.findViewById(R.id.tranMadeID);
+            amount2=itemView.findViewById(R.id.amount2Textview);
         }
 
 
