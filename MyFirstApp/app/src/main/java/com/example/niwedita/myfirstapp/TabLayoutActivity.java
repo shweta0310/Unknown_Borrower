@@ -44,9 +44,12 @@ public class TabLayoutActivity extends AppCompatActivity implements TabLayout.On
     // Declaring the lists for two tabs
     static public ArrayList<Outgoing_Request_made> outgoingRequest_madeList;
     static public ArrayList<Outgoing_Request_Confirmed> outgoingRequestConfirmedArrayList;
+    static public String token1;
 
     String url1 = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/outReqMade";
     String url2 = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/outReqConfirmed";
+
+
 
 
     // adding tabs synchronously -- inside the oncreate -- since volley is asynchronous
@@ -91,6 +94,7 @@ public class TabLayoutActivity extends AppCompatActivity implements TabLayout.On
 
 
         this.token = getIntent().getStringExtra("token");
+        token1= this.token;
 
         // getting the data from backend
         mQueue = Volley.newRequestQueue(this);
@@ -104,9 +108,10 @@ public class TabLayoutActivity extends AppCompatActivity implements TabLayout.On
                     public void onResponse(JSONArray response)
                     {
                         String str = response.toString();
-                        Log.d("INFO",str);
+                        Log.d("INFORM",str);
 
-
+//                        for (int i = 0;i<4;i++)
+//            outgoingRequest_madeList.add(new Outgoing_Request_made("Siddhartha ", " Requested Date: 12-12-12","13"));
 
                         try
                         {
@@ -114,9 +119,9 @@ public class TabLayoutActivity extends AppCompatActivity implements TabLayout.On
                             for(int i=0;i<response.length();i++)
                             {
                                 JSONObject transaction = response.getJSONObject(i);
-                                Log.d("info",transaction.toString());
-                                Outgoing_Request_made x =new Outgoing_Request_made(transaction.getString("lenderName"), " Requested Date:"+transaction.getString("requestedDate"));
-                                Log.d("Info",x.toString());
+                                Log.d("infoRM","===================================="+transaction.toString());
+                                Outgoing_Request_made x =new Outgoing_Request_made(transaction.getString("lenderName"), " Req on:"+transaction.getString("requestedDate"),transaction.getString("transactionId"));
+                                Log.d("InfoRM",x.toString());
                                 outgoingRequest_madeList.add(x);
                             }
 
@@ -153,7 +158,7 @@ public class TabLayoutActivity extends AppCompatActivity implements TabLayout.On
                     public void onResponse(JSONArray response)
                     {
                         String str = response.toString();
-                        Log.d("INFO",str);
+                        Log.d("INFORC",str);
 
 
 
@@ -163,9 +168,9 @@ public class TabLayoutActivity extends AppCompatActivity implements TabLayout.On
                             for(int i=0;i<response.length();i++)
                             {
                                 JSONObject transaction = response.getJSONObject(i);
-                                Log.d("info",transaction.toString());
-                                Outgoing_Request_Confirmed x =new Outgoing_Request_Confirmed(transaction.getString("lenderName"),"Confirmed Date: " + transaction.getString("acceptedDate"),"Requested Date: "+transaction.getString("requestedDate"));
-                                Log.d("Info",x.toString());
+                                Log.d("infoRC",transaction.toString());
+                                Outgoing_Request_Confirmed x =new Outgoing_Request_Confirmed(transaction.getString("lenderName"),"Conf on: " + transaction.getString("acceptedDate"),"Req on: "+transaction.getString("requestedDate"),transaction.getString("transactionId"));
+                                Log.d("InfoRC",x.toString());
                                 outgoingRequestConfirmedArrayList.add(x);
                             }
                             addTabs();
