@@ -7,4 +7,6 @@
     <color name="contact_name">#333333</color>
     <color name="contact_city">#8c8c8c</color>
     <color name="contact_organization">#8C8C8C</color>
+    <color name="red">#B22222</color>
+
 </resources>

@@ -20,5 +20,14 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">
+            @color/contact_city
+        </item>
+        <item name="colorControlActivated">
+            @color/red
+        </item>
+    </style>
+
 
 </resources>

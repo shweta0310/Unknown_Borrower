@@ -9,10 +9,10 @@
     <string name="idno">987654321</string>
     <string name="bid">Borrower ID:</string>
     <string name="bidno">Rounak</string>
-    <string name="Date">Settled date :07-12-18</string>
+    <string name="Date">07-12-18</string>
     <string name="Lidno">Shweta</string>
     <string name="Lid">Lender ID:</string>
-    <string name="Datel">Requested Date:07-11-18</string>
+    <string name="Datel">07-11-18</string>
     <string name="Amount">Amount:</string>
     <string name="Cost">5000</string>
     <string name="Button">Ratings</string>
@@ -23,7 +23,7 @@
     <string name="paybackbutton">PAY</string>
     <string name="view_profile">View Profile</string>
     <string name="Date12">Requested Date: 03/02/2019</string>
-    <string name="date1">Requested Date: 31/01/19</string>
+    <string name="date1"> Requested Date:31/01/19</string>
     <string name="date2">Requested Date: 15/01/19</string>
     <string name="date3">Pay Back Date: 06/02/19</string>
     <string name="button2">PAY</string>
@@ -46,4 +46,8 @@
     <string name="org">Microsoft, India</string>
     <string name="gender">M</string>
     <string name="name">Nisarg S. Joshi</string>
+    <string name="request_date">Requested Date</string>
+    <string name="setlle_date">Settled Date</string>
+    <string name="ratingbutton">Ratings</string>
+
 </resources>
