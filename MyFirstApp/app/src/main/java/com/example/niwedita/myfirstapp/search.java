@@ -228,7 +228,7 @@ public class search extends AppCompatActivity implements ContactsAdapter.Contact
                 requestObject.put("lenderId", lenderId);
                 requestObject.put("lenderName", lenderName);
                 requestObject.put("amount", amount);
-                requestObject.put("status", 1);
+                // requestObject.put("status", 1);
 
                 final String requestString = requestObject.toString();
 
@@ -236,9 +236,12 @@ public class search extends AppCompatActivity implements ContactsAdapter.Contact
                     @Override
                     public void onResponse(String response) {
                         Log.e("RESPONSE-Send Request: ", response);
-                        Intent intent = new Intent(search.this, outgoing.class);
+                        Intent intent = new Intent(search.this, MainActivity.class);
                         intent.putExtra("amount",amount);
+                        intent.putExtra("token",token);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
+                        finish();
                     }
                 }, new Response.ErrorListener() {
                     @Override
