@@ -81,7 +81,6 @@ public class TabLayoutIncomingActivity extends AppCompatActivity implements TabL
         incomingRequestReceivedArrayList = new ArrayList<>();
         incomingRequest_madeList = new ArrayList<>();
 
-
         this.token = getIntent().getStringExtra("token");
         token1 = this.token;
 
@@ -153,7 +152,7 @@ public class TabLayoutIncomingActivity extends AppCompatActivity implements TabL
                             {
                                 JSONObject transaction = response.getJSONObject(i);
                                 Log.d("infoRC",transaction.toString());
-                                Incoming_Request_Accepted x =new Incoming_Request_Accepted(transaction.getString("borrowerName"),"Accepted on " + transaction.getString("acceptedDate"),"Req on "+transaction.getString("requestedDate"),"Rs "+transaction.getString("amount")+"/-",transaction.getString("transactionId"));
+                                Incoming_Request_Accepted x =new Incoming_Request_Accepted(transaction.getString("borrowerName"),"Accepted on " + transaction.getString("acceptedDate"),"Req on "+transaction.getString("requestedDate"),"Rs "+transaction.getString("amount")+"/-",transaction.getString("borrowerId"));
                                 Log.d("InfoRC",x.toString());
                                 incomingRequest_madeList.add(x);
                             }
@@ -185,6 +184,12 @@ public class TabLayoutIncomingActivity extends AppCompatActivity implements TabL
 
         mQueue.add(request1);
         mQueue.add(request2);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
     }
 
     @Override

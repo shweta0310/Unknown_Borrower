@@ -1,6 +1,7 @@
 package com.example.niwedita.myfirstapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -29,7 +30,7 @@ public class Incoming_Request_AcceptedAdapter extends RecyclerView.Adapter<Incom
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Incoming_Request_AcceptedAdapter.MyHolder myHolder, int i) {
+    public void onBindViewHolder(@NonNull final Incoming_Request_AcceptedAdapter.MyHolder myHolder, int i) {
 
         Incoming_Request_Accepted incoming_request_accepted = list.get(i);
 
@@ -37,9 +38,19 @@ public class Incoming_Request_AcceptedAdapter extends RecyclerView.Adapter<Incom
         myHolder.borrower_name2.setText(incoming_request_accepted.getName());
         myHolder.amount2.setText(incoming_request_accepted.getAmount());
         myHolder.payDate.setText(incoming_request_accepted.getPayDate());
+        myHolder.transaction.setText(incoming_request_accepted.getTransaction());
 
-
+        myHolder.view_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context,ViewProfile.class);
+                intent.putExtra("userId", String.valueOf(myHolder.transaction.getText()));
+                context.startActivity(intent);
+            }
+        });
     }
+
+
 
 
     @Override
@@ -59,6 +70,7 @@ public class Incoming_Request_AcceptedAdapter extends RecyclerView.Adapter<Incom
             amount2 = itemView.findViewById(R.id.amount_request2);
             payDate = itemView.findViewById(R.id.pay_date);
             transaction=itemView.findViewById(R.id.transactionReqAcc);
+            view_profile = itemView.findViewById(R.id.view_profile_button);
 
         }
 

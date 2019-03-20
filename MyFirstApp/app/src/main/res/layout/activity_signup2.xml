@@ -1,8 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -11,12 +10,14 @@
 
         <TextView
             android:id="@+id/textView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:textAlignment="center"
             android:layout_marginTop="20dp"
             android:text="Enter Personal Details"
-            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
 
@@ -26,14 +27,14 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/my_border"
             android:ems="10"
-            android:paddingLeft="10dp"
-            android:textAlignment="center"
             android:hint="Name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textAlignment="center" />
 
 
         <EditText
@@ -42,14 +43,14 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/my_border"
             android:ems="10"
-            android:paddingLeft="10dp"
-            android:textAlignment="center"
             android:hint="Age"
-            android:inputType="number" />
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:textAlignment="center" />
 
 
         <EditText
@@ -58,14 +59,14 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/my_border"
             android:ems="10"
-            android:paddingLeft="10dp"
-            android:textAlignment="center"
             android:hint="Gender(M/F)"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textAlignment="center" />
 
 
         <EditText
@@ -74,14 +75,14 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/my_border"
             android:ems="10"
-            android:paddingLeft="10dp"
-            android:textAlignment="center"
             android:hint="Occupation"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textAlignment="center" />
 
 
         <EditText
@@ -90,14 +91,14 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/my_border"
             android:ems="10"
-            android:paddingLeft="10dp"
-            android:textAlignment="center"
             android:hint="Organization"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textAlignment="center" />
 
         <EditText
             android:id="@+id/city"
@@ -105,14 +106,14 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/my_border"
             android:ems="10"
-            android:paddingLeft="10dp"
-            android:textAlignment="center"
             android:hint="City"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textAlignment="center" />
 
         <EditText
             android:id="@+id/state"
@@ -120,14 +121,14 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/my_border"
             android:ems="10"
-            android:paddingLeft="10dp"
-            android:textAlignment="center"
             android:hint="State"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textAlignment="center" />
 
 
         <EditText
@@ -136,14 +137,14 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/my_border"
             android:ems="10"
-            android:paddingLeft="10dp"
-            android:textAlignment="center"
             android:hint="Country"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textAlignment="center" />
 
 
         <EditText
@@ -152,14 +153,14 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/my_border"
             android:ems="10"
-            android:paddingLeft="10dp"
-            android:textAlignment="center"
             android:hint="Wallet Amount"
-            android:inputType="number" />
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:textAlignment="center" />
 
         <Button
             android:id="@+id/button"
@@ -172,8 +173,8 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/my_border"
             android:onClick="loginButtonClicked"
-            android:textStyle="bold"
-            android:text="SIGN UP" />
+            android:text="SIGN UP"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </ScrollView>

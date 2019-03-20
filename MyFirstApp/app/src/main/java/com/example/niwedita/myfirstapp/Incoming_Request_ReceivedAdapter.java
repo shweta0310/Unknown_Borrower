@@ -35,7 +35,7 @@ import java.util.Map;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 import static android.support.v4.content.ContextCompat.getSystemService;
-import static com.example.niwedita.myfirstapp.TabLayoutActivity.token1;
+import static com.example.niwedita.myfirstapp.TabLayoutIncomingActivity.token1;
 
 public class Incoming_Request_ReceivedAdapter extends RecyclerView.Adapter<Incoming_Request_ReceivedAdapter.MyHolder> {
 
