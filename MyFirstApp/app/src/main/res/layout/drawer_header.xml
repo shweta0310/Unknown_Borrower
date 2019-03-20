@@ -21,7 +21,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/th"
+            android:src="@drawable/profile_img"
             android:elevation="2dp"
             app:civ_border_width="2dp"
             app:civ_border_color="#A1887F"/>
@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@id/name"
+            android:text="Nisarg"
             android:textColor="#fff"
             android:textSize="30sp"
             android:fontFamily="sans-serif-condensed"
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
-            android:text="@id/email"
+            android:text="NJnisarg@gmail.com"
             android:textColor="#fff"
             android:textSize="15sp"
             />
