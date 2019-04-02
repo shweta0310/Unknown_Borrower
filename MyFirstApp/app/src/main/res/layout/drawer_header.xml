@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@id/name"
+            android:text="Nisarg Joshi"
             android:textColor="#fff"
             android:textSize="30sp"
             android:fontFamily="sans-serif-condensed"
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
-            android:text="@id/email"
+            android:text="NJnisarg@gmail.com"
             android:textColor="#fff"
             android:textSize="15sp"
             />
