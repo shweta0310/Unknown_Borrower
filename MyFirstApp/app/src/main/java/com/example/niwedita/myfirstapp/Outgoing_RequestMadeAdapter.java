@@ -68,9 +68,11 @@ public class Outgoing_RequestMadeAdapter extends RecyclerView.Adapter<Outgoing_R
                 AlertDialog.Builder alert = new AlertDialog.Builder(context,R.style.MyDialogTheme);
                 alert.setTitle("Unknown Borrower");
                 alert.setMessage("Do you want to drop the Request Made ?");
+
                 alert.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
 
                         Log.d("tect","==================================================================================");
                         try {
