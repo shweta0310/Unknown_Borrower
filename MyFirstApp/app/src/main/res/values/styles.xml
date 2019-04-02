@@ -28,6 +28,8 @@
             @color/red
         </item>
     </style>
-
+    <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/colorButton</item>
+    </style>
 
 </resources>

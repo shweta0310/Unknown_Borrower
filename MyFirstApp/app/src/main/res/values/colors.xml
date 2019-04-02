@@ -3,7 +3,9 @@
     <color name="colorPrimary">#3E3C3C</color>
     <color name="colorPrimaryDark">#040404</color>
     <color name="colorAccent">#FFFF</color>
-    <color name="colorButton">#FFFFFF</color>
+    <!--<color name="colorAccent">#a4c6</color>-->
+
+    <color name="colorButton">#232222</color>
     <color name="contact_name">#333333</color>
     <color name="contact_city">#8c8c8c</color>
     <color name="contact_organization">#8C8C8C</color>

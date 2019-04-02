@@ -1,6 +1,8 @@
 package com.example.niwedita.myfirstapp;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -53,6 +55,7 @@ public class Outgoing_RequestMadeAdapter extends RecyclerView.Adapter<Outgoing_R
     @Override
     public void onBindViewHolder(@NonNull final MyHolder myHolder, int i) {
         final int j=i;
+
         Outgoing_Request_made outgoingRequest_made = list.get(i);
         myHolder.date.setText(outgoingRequest_made.getDate());
         myHolder.name.setText(outgoingRequest_made.getName());
@@ -61,57 +64,78 @@ public class Outgoing_RequestMadeAdapter extends RecyclerView.Adapter<Outgoing_R
         myHolder.drop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    final String transactionId=myHolder.transaction.getText().toString();
-                    JSONObject jsonBody = new JSONObject();
-                    jsonBody.put("transactionId",Integer.parseInt(transactionId));
-                    final String requestString = jsonBody.toString();
 
-
-                    String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/dropRequest";
-
-                // write the volley code for Drop button
-                RequestQueue queue = Volley.newRequestQueue(context);
-                StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                AlertDialog.Builder alert = new AlertDialog.Builder(context,R.style.MyDialogTheme);
+                alert.setTitle("Unknown Borrower");
+                alert.setMessage("Do you want to drop the Request Made ?");
+                alert.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onResponse(String response) {
-                        Log.d("dropResp",response);
-                                list.remove(j);
-                                Log.d("Drop","Successful");
-                                Toast.makeText(context,"Successfully Dropped",Toast.LENGTH_LONG).show();
-                                Outgoing_RequestMadeAdapter.this.notifyDataSetChanged();
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("error is ", "" + error);
-                    }
-                }) {
+                    public void onClick(DialogInterface dialog, int which) {
 
-                    //This is for Headers If You Needed
-                    @Override
-                    public Map<String, String> getHeaders() throws AuthFailureError {
-                        Map<String, String> headers = new HashMap<>();
-                        headers.put("Content-Type", "application/json");
-                        headers.put("Authorization", "Token " + token1);
-                        return headers;
-                    }
+                        Log.d("tect","==================================================================================");
+                        try {
+                            final String transactionId=myHolder.transaction.getText().toString();
+                            JSONObject jsonBody = new JSONObject();
+                            jsonBody.put("transactionId",Integer.parseInt(transactionId));
+                            final String requestString = jsonBody.toString();
 
-                    @Override
-                    public byte[] getBody() {
-                        try{
-                            return requestString.getBytes();
-                        }catch (Exception e){
-                            return null;
+
+                            String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/dropRequest";
+
+                            // write the volley code for Drop button
+                            RequestQueue queue = Volley.newRequestQueue(context);
+                            StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    Log.d("dropResp",response);
+                                    list.remove(j);
+                                    Log.d("Drop","Successful");
+                                    Toast.makeText(context,"Successfully Dropped",Toast.LENGTH_LONG).show();
+                                    Outgoing_RequestMadeAdapter.this.notifyDataSetChanged();
+                                }
+                            }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Log.e("error is ", "" + error);
+                                }
+                            }) {
+
+                                //This is for Headers If You Needed
+                                @Override
+                                public Map<String, String> getHeaders() throws AuthFailureError {
+                                    Map<String, String> headers = new HashMap<>();
+                                    headers.put("Content-Type", "application/json");
+                                    headers.put("Authorization", "Token " + token1);
+                                    return headers;
+                                }
+
+                                @Override
+                                public byte[] getBody() {
+                                    try{
+                                        return requestString.getBytes();
+                                    }catch (Exception e){
+                                        return null;
+                                    }
+                                }
+                            };
+
+                            queue.add(request);
+
+                        }catch (JSONException e){
+                            Log.d("jsonException",e.toString());
                         }
+
                     }
-                };
+                });
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-                queue.add(request);
+                        Log.d("tactcancel","===============================================");
+                    }
+                });
+                alert.create().show();
 
-                }catch (JSONException e){
-                    Log.d("jsonException",e.toString());
-                }
                 }
 
         });

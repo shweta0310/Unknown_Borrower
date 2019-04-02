@@ -1,6 +1,8 @@
 package com.example.niwedita.myfirstapp;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -76,67 +78,83 @@ public class Outgoing_RequestConfirmedAdapter extends RecyclerView.Adapter<Outgo
             @Override
             public void onClick(View v) {
                 // write the code for pay button
+                AlertDialog.Builder alert1 = new AlertDialog.Builder(context,R.style.MyDialogTheme);
+                alert1.setTitle("Unknown Borrower");
+                alert1.setMessage("Do you want to Pay the Amount ?");
+                alert1.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            final String transactionId=requestconfirmedHolder.transaction.getText().toString();
+                            JSONObject jsonBody = new JSONObject();
+                            jsonBody.put("transactionId",Integer.parseInt(transactionId));
+                            final String requestString = jsonBody.toString();
 
-                try {
-                    final String transactionId=requestconfirmedHolder.transaction.getText().toString();
-                    JSONObject jsonBody = new JSONObject();
-                    jsonBody.put("transactionId",Integer.parseInt(transactionId));
-                    final String requestString = jsonBody.toString();
 
+                            String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/pay_back";
 
-                    String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/pay_back";
+                            // write the volley code for Drop button
+                            RequestQueue queue = Volley.newRequestQueue(context);
+                            StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    Log.d("Response ",response);
 
-                    // write the volley code for Drop button
-                    RequestQueue queue = Volley.newRequestQueue(context);
-                    StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            Log.d("Response ",response);
+                                    if (response.contains("payment successful")) {
+                                        Log.d("if","================================================");
+                                        outgoing_request_confirmedArrayList.remove(j);
+                                        Toast.makeText(context,"Successfully Paid",Toast.LENGTH_LONG).show();
+                                        Outgoing_RequestConfirmedAdapter.this.notifyDataSetChanged();
 
-                            if (response.contains("payment successful")) {
-                            Log.d("if","================================================");
-                            outgoing_request_confirmedArrayList.remove(j);
-                            Toast.makeText(context,"Successfully Paid",Toast.LENGTH_LONG).show();
-                            Outgoing_RequestConfirmedAdapter.this.notifyDataSetChanged();
+                                    }
+                                    else if(response.contains("insufficient funds")) {
+                                        Log.d("elseif","================================================");
+                                        Toast.makeText(context,"Balance Not Sufficient",Toast.LENGTH_LONG).show();
+                                    }
+                                    Log.d("log2","================================================");
+                                }
+                            }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Log.e("error is ", "" + error);
+                                }
+                            }) {
 
-                            }
-                            else if(response.contains("insufficient funds")) {
-                                Log.d("elseif","================================================");
-                                Toast.makeText(context,"Balance Not Sufficient",Toast.LENGTH_LONG).show();
-                            }
-                            Log.d("log2","================================================");
+                                //This is for Headers If You Needed
+                                @Override
+                                public Map<String, String> getHeaders() throws AuthFailureError {
+                                    Map<String, String> headers = new HashMap<>();
+                                    headers.put("Content-Type", "application/json");
+                                    headers.put("Authorization", "Token " + token1);
+                                    return headers;
+                                }
+
+                                @Override
+                                public byte[] getBody() {
+                                    try{
+                                        return requestString.getBytes();
+                                    }catch (Exception e){
+                                        return null;
+                                    }
+                                }
+                            };
+
+                            queue.add(request);
+
+                        }catch (JSONException e){
+                            Log.d("jsonException ",e.toString());
                         }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.e("error is ", "" + error);
-                        }
-                    }) {
+                    }
+                });
 
-                        //This is for Headers If You Needed
-                        @Override
-                        public Map<String, String> getHeaders() throws AuthFailureError {
-                            Map<String, String> headers = new HashMap<>();
-                            headers.put("Content-Type", "application/json");
-                            headers.put("Authorization", "Token " + token1);
-                            return headers;
-                        }
+                alert1.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.d("canel","cancelled==========");
+                    }
+                });
+                alert1.create().show();
 
-                        @Override
-                        public byte[] getBody() {
-                            try{
-                                return requestString.getBytes();
-                            }catch (Exception e){
-                                return null;
-                            }
-                        }
-                    };
-
-                    queue.add(request);
-
-                }catch (JSONException e){
-                    Log.d("jsonException ",e.toString());
-                }
             }
         });
 
