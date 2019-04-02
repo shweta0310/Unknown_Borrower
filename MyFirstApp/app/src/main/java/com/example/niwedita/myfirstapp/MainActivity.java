@@ -2,6 +2,8 @@ package com.example.niwedita.myfirstapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Button;
@@ -58,6 +61,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 drawerLayout, toolbar, 0, 0);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
+
+        ImageView img = findViewById(R.id.app_bk);
+
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = false;
+        options.inSampleSize = 3;
+        Bitmap smallBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dashboard3, options);       img.setImageBitmap(smallBitmap);
 
 
         Button incoming = (Button) findViewById(R.id.incoming);

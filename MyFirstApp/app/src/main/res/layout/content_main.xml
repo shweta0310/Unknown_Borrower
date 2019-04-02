@@ -4,12 +4,12 @@
     android:id="@+id/drawer_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >
-    
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,47 +21,45 @@
             android:layout_alignParentTop="true"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            app:theme="@style/AppTheme.AppBarOverlay"
-            />
+            app:theme="@style/AppTheme.AppBarOverlay" />
 
-        <TextView android:id="@+id/tv_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="70dp"
-            android:text="Dashboard" android:textSize="40sp"/>
+        <ImageView
+            android:id="@+id/app_bk"
+            android:maxHeight="800dp"
+            android:layout_marginTop="55dp"
+            android:layout_height="600dp"
+            android:layout_width="420dp">
+        </ImageView>
+
 
         <Button
             android:id="@+id/incoming"
-            android:layout_width="114dp"
+            android:layout_width="108dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="596dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="525dp"
             android:background="@drawable/my_border"
             android:text="@string/incoming" />
 
         <Button
             android:id="@+id/search"
-            android:layout_width="114dp"
+            android:layout_width="104dp"
             android:layout_height="60dp"
-            android:layout_marginStart="140dp"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="596dp"
-            android:text="@string/search"
+            android:layout_marginStart="128dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="525dp"
             android:background="@drawable/my_border"
-            />
+            android:text="@string/search" />
 
         <Button
             android:id="@+id/outgoing"
-            android:layout_width="114dp"
+            android:layout_width="108dp"
             android:layout_height="60dp"
-            android:layout_marginStart="265dp"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="596dp"
+            android:layout_marginLeft="245dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="525dp"
             android:text="@string/outgoing"
-            android:background="@drawable/my_border"
-             />
-
+            android:background="@drawable/my_border"/>
 
     </RelativeLayout>
 

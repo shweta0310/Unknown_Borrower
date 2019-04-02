@@ -437,7 +437,7 @@
                 android:text="Save Changes"
                 android:textColor="#FFFFFF"
                 android:background="@color/colorPrimary"
-                android:layout_marginLeft="85dp"
+                android:layout_marginLeft="65dp"
                 android:onClick="goBackToProfileActivity"
                 android:layout_marginBottom="30dp"/>
         </LinearLayout>
