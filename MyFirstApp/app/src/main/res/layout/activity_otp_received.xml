@@ -14,7 +14,7 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:padding="12dp"
-        android:background="#303F9F"
+        android:background="@color/colorPrimary"
         android:textColor="#FFFFFF"/>
 
     <TextView
@@ -73,8 +73,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginRight="6dp"
-            android:background="@drawable/cancel_forgot_password"
-            android:textColor="#303F9F"
+            android:background="@drawable/my_border"
             android:textSize="18sp"
             android:text="Cancel"
             android:textAllCaps="false"/>
@@ -86,10 +85,9 @@
             android:layout_weight="1"
             android:layout_marginLeft="6dp"
             android:text="Change Password"
-            android:textColor="#FFF"
             android:textSize="18sp"
             android:textAllCaps="false"
-            android:background="#303F9F"/>
+            android:background="@drawable/my_border"/>
 
     </LinearLayout>
 
