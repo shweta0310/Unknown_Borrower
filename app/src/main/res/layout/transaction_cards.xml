@@ -7,9 +7,7 @@
     android:orientation="vertical"
     android:layout_marginTop="50dp">
 
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <android.support.v7.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,25 +99,24 @@
                 android:id="@+id/requestdate"
                 android:layout_width="116dp"
                 android:layout_height="34dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginEnd="25dp"
                 android:hint="@string/request_date"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.981"
-                app:layout_constraintStart_toStartOf="@+id/textView5" />
+                app:layout_constraintStart_toEndOf="@+id/textView5" />
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="116dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="25dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="8dp"
                 android:hint="@string/Date"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.99"
-                app:layout_constraintStart_toStartOf="@+id/textView5"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <TextView
@@ -148,24 +145,23 @@
                 android:id="@+id/settle_date"
                 android:layout_width="127dp"
                 android:layout_height="37dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginEnd="25dp"
                 android:hint="@string/setlle_date"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/textView9" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="116dp"
                 android:layout_height="36dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="45dp"
+                android:layout_marginEnd="8dp"
                 android:hint="@string/Datel"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.98"
                 app:layout_constraintStart_toEndOf="@+id/textView9"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -182,8 +178,8 @@
 
             <TextView
                 android:id="@+id/textView13"
-                android:layout_width="82dp"
-                android:layout_height="37dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginLeft="24dp"
                 android:hint="@string/Cost"
@@ -194,10 +190,10 @@
                 android:id="@+id/button"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="36dp"
                 android:layout_marginRight="36dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="10dp"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintCircleRadius="10dp"
@@ -206,6 +202,38 @@
                 app:layout_constraintVertical_bias="1.0"
                 android:background="@drawable/my_button"
                 android:hint="@string/ratingbutton" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="12dp"
+                android:text="Rs"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView13"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.957" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="/-"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textView13"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.957" />
             <!--android:background="@drawable/my_border"-->
             <!--<Button-->
             <!--android:id="@+id/button"-->
