@@ -37,17 +37,15 @@
 
         <Button
             android:id="@+id/payButton"
-            android:layout_width="74dp"
+            android:layout_width="100dp"
             android:layout_height="38dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="11dp"
             android:background="@drawable/my_button"
             android:text="PAY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintCircleRadius="5dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/amountTextview"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -91,6 +89,7 @@
             android:layout_height="35dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginBottom="1dp"
             android:paddingLeft="1dp"
             android:paddingTop="3dp"
             android:paddingRight="1dp"
@@ -98,6 +97,7 @@
             android:text="Rs  3000/-"
             android:textColor="@color/contact_name"
             android:textSize="18dp"
+            app:layout_constraintBottom_toTopOf="@+id/payButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
