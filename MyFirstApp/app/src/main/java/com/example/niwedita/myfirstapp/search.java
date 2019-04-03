@@ -92,7 +92,7 @@ public class search extends AppCompatActivity implements ContactsAdapter.Contact
         locationSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String baseUrl = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/search/getGeo?token="+token;
+                String baseUrl = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/search/getGeo?token="+token;
                 fetchContacts(baseUrl);
             }
         });
