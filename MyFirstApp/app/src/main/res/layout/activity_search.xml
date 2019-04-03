@@ -30,6 +30,21 @@
         android:layout_marginBottom="75dp"
         android:scrollbars="vertical" />
 
+    <Button
+        android:id="@+id/LocationSearch"
+        android:layout_width="250dp"
+        android:width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/recycler_view"
+        android:layout_alignEnd="@+id/recycler_view"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="130dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/my_border"
+        android:ellipsize="middle"
+        android:text="Geo Search"
+        />
 
     <Button
         android:id="@+id/addAmount"

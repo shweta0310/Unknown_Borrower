@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -55,6 +56,9 @@ public class search extends AppCompatActivity implements ContactsAdapter.Contact
     // url to fetch contacts json
     //private static final String URL = "https://api.androidhive.info/json/contacts.json";
 
+    //Geolocation
+    Button locationSearch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +87,15 @@ public class search extends AppCompatActivity implements ContactsAdapter.Contact
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new MyDividerItemDecoration(this, DividerItemDecoration.VERTICAL, 36));
         recyclerView.setAdapter(mAdapter);
+
+        locationSearch =  (Button) findViewById(R.id.LocationSearch);
+        locationSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String baseUrl = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/search/getGeo?token="+token;
+                fetchContacts(baseUrl);
+            }
+        });
     }
 
     /**
