@@ -154,7 +154,7 @@ public class SignUp2 extends AppCompatActivity {
             else if (gender.toString().equals("F"))
                 gender1 = 1;
 
-            String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/profile/createProfile";
+            String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/profile/createProfile";
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
             JSONObject requestObject = new JSONObject();

@@ -82,7 +82,7 @@ public class Outgoing_RequestMadeAdapter extends RecyclerView.Adapter<Outgoing_R
                             final String requestString = jsonBody.toString();
 
 
-                            String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/dropRequest";
+                            String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/outgoing/dropRequest";
 
                             // write the volley code for Drop button
                             RequestQueue queue = Volley.newRequestQueue(context);

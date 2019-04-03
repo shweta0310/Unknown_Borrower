@@ -52,7 +52,7 @@ public class ViewProfile extends AppCompatActivity {
 
     void viewUser() {
 
-        String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/search/viewProfile?id="+userId;
+        String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/search/viewProfile?id="+userId;
         Log.e("USERID:",url);
         JsonObjectRequest objectRequest=new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {

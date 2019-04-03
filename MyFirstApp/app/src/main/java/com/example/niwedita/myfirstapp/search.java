@@ -137,7 +137,7 @@ public class search extends AppCompatActivity implements ContactsAdapter.Contact
             @Override
             public boolean onQueryTextSubmit(String query) {
                 // filter recycler view when query submitted
-                String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/search/get?searchString=" + query;
+                String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/search/get?searchString=" + query;
                 fetchContacts(url);
                 //mAdapter.getFilter().filter(query);
                 return false;
@@ -146,7 +146,7 @@ public class search extends AppCompatActivity implements ContactsAdapter.Contact
             @Override
             public boolean onQueryTextChange(String query) {
                 // filter recycler view when text is changed
-                String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/search/get?searchString=" + query;
+                String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/search/get?searchString=" + query;
                 fetchContacts(url);
                 //mAdapter.getFilter().filter(query);
                 return false;
@@ -220,7 +220,7 @@ public class search extends AppCompatActivity implements ContactsAdapter.Contact
             Toast.makeText(getApplicationContext(), "Transaction: " + borrowerId + ", " + borrowerName + ", " + lenderId + ", " + lenderName + ", " + amount, Toast.LENGTH_LONG).show();
 
             try {
-                String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/transaction/sendRequest";
+                String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/transaction/sendRequest";
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
                 JSONObject requestObject = new JSONObject();

@@ -107,7 +107,7 @@ public class SignUp extends AppCompatActivity {
 
 
 
-            String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/users/register";
+            String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/users/register";
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
             JSONObject requestObject = new JSONObject();

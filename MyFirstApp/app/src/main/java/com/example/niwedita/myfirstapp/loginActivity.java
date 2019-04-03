@@ -93,7 +93,7 @@ public class loginActivity extends AppCompatActivity {
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
             // Request a string response from the provided URL.
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/users/login",
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/users/login",
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {

@@ -72,7 +72,7 @@ public class OtpReceived extends AppCompatActivity {
     public void changePasswordClicked() throws JSONException {
         final String OTP = otp.getText().toString();
 
-        String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/forgotPassword/verifyOtp";
+        String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/forgotPassword/verifyOtp";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override

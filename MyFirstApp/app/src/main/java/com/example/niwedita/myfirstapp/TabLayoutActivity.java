@@ -46,8 +46,8 @@ public class TabLayoutActivity extends AppCompatActivity implements TabLayout.On
     static public ArrayList<Outgoing_Request_Confirmed> outgoingRequestConfirmedArrayList;
     static public String token1;
 
-    String url1 = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/outReqMade";
-    String url2 = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/outReqConfirmed";
+    String url1 = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/outgoing/outReqMade";
+    String url2 = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/outgoing/outReqConfirmed";
 
 
 

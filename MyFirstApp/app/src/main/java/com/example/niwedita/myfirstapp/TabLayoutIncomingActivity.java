@@ -39,8 +39,8 @@ public class TabLayoutIncomingActivity extends AppCompatActivity implements TabL
     static public ArrayList<Incoming_Request_Accepted> incomingRequest_madeList;
     static public String token1;
 
-    String url1 = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/incoming/getreqRec";
-    String url2 = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/incoming/getreqAcc";
+    String url1 = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/incoming/getreqRec";
+    String url2 = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/incoming/getreqAcc";
 
     // adding tabs synchronously -- inside the oncreate -- since volley is asynchronous
     public void addTabs() {

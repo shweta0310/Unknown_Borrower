@@ -64,7 +64,7 @@ public class ForgotPassword extends AppCompatActivity {
     public void findAccountClicked() throws JSONException {
         final String email = emailId.getText().toString();
 
-        String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/forgotPassword/sendOTPMail";
+        String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/forgotPassword/sendOTPMail";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override

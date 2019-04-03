@@ -75,7 +75,7 @@ public class Incoming_Request_ReceivedAdapter extends RecyclerView.Adapter<Incom
                     final String requestString = jsonBody.toString();
 
 
-                    String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/incoming/decline";
+                    String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/incoming/decline";
 
                     // write the volley code for Drop button
                     RequestQueue queue = Volley.newRequestQueue(context);
@@ -133,7 +133,7 @@ public class Incoming_Request_ReceivedAdapter extends RecyclerView.Adapter<Incom
                     final String requestString = jsonBody.toString();
 
 
-                    String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/incoming/pay";
+                    String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/incoming/pay";
 
                     // write the volley code for Drop button
                     RequestQueue queue = Volley.newRequestQueue(context);

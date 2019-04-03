@@ -138,7 +138,7 @@ public class editProfileActivity extends AppCompatActivity {
 
     private void viewUser()
     {
-        String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/profile/getProfile";
+        String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/profile/getProfile";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>()
                 {
@@ -254,7 +254,7 @@ public class editProfileActivity extends AppCompatActivity {
 
         else
         {
-            String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/profile/editProfile";
+            String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/profile/editProfile";
             JSONObject requestObject = new JSONObject();
             requestObject.put("age",Integer.parseInt(age.getText().toString()));
             requestObject.put("city",city.getText().toString());

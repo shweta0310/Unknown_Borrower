@@ -73,7 +73,7 @@ public class AddMoney extends AppCompatActivity {
 
     private void viewAmount()
     {
-        String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/profile/getProfile";
+        String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/profile/getProfile";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>()
@@ -141,7 +141,7 @@ public class AddMoney extends AppCompatActivity {
         }
         else
         {
-            String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/profile/addMoney";
+            String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/profile/addMoney";
 
             StringRequest request = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
                 @Override

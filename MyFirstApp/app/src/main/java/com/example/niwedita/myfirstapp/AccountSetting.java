@@ -110,7 +110,7 @@ public class AccountSetting extends AppCompatActivity {
         }
         else {
             //WHEN CHANGE PASSWORD BUTTON IS CLICKED
-            String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/profile/changePassword";
+            String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/profile/changePassword";
 
             StringRequest stringRequest = new StringRequest(Request.Method.PUT, url,
                     new Response.Listener<String>() {

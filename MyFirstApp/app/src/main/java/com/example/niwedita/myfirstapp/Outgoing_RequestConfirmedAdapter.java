@@ -91,7 +91,7 @@ public class Outgoing_RequestConfirmedAdapter extends RecyclerView.Adapter<Outgo
                             final String requestString = jsonBody.toString();
 
 
-                            String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/outgoing/pay_back";
+                            String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/outgoing/pay_back";
 
                             // write the volley code for Drop button
                             RequestQueue queue = Volley.newRequestQueue(context);

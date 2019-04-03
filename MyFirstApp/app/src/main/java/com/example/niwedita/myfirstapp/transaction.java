@@ -69,7 +69,7 @@ public class transaction extends AppCompatActivity implements transactionAdapter
 
         // private void viewalltransactions()
         //{
-        String url="http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/transaction/getalltransactions";
+        String url="http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/transaction/getalltransactions";
 
         //Log.e("","hi");
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,

@@ -74,7 +74,7 @@ public class profile extends AppCompatActivity {
 
     }
 
-    String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/profile/getProfile";
+    String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/profile/getProfile";
 
     private void viewUser()
     {

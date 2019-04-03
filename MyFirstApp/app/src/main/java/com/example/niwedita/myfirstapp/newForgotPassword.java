@@ -104,7 +104,7 @@ public class newForgotPassword extends AppCompatActivity {
         }
         else {
             //WHEN SUMBIT BUTTON IS CLICKED
-            String url = "http://unknownborrowersbk-dev.us-east-1.elasticbeanstalk.com/forgotPassword/resetPassword";
+            String url = "http://UnknownBorrowersBK-dev.qjp3wbxcie.us-east-1.elasticbeanstalk.com/forgotPassword/resetPassword";
 
             StringRequest stringRequest = new StringRequest(Request.Method.PUT, url,
                     new Response.Listener<String>() {
