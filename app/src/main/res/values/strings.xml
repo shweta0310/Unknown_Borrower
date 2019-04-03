@@ -46,8 +46,8 @@
     <string name="org">Microsoft, India</string>
     <string name="gender">M</string>
     <string name="name">Nisarg S. Joshi</string>
-    <string name="request_date">Requested Date</string>
-    <string name="setlle_date">Settled Date</string>
+    <string name="request_date">Settled Date</string>
+    <string name="setlle_date">Request Date</string>
     <string name="ratingbutton">Ratings</string>
 
 </resources>
